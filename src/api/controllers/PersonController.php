@@ -5,7 +5,7 @@ namespace yii2module\profile\api\controllers;
 use yii2lab\domain\rest\Controller;
 use yii2lab\helpers\Behavior;
 
-class ProfileController extends Controller
+class PersonController extends Controller
 {
 
 	public $serviceName = 'profile.profile';
