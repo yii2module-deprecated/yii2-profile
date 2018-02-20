@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'title' => 'Местоположение',
 	'region_id' =>'Регион',
 	'city_id' =>'Город',
 	'district' =>'Район',

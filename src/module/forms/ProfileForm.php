@@ -20,11 +20,11 @@ class ProfileForm extends Model
 	 */
 	public function attributeLabels() {
 		return [
-			'first_name' => Yii::t('profile/profile', 'first_name'),
-			'last_name' => Yii::t('profile/profile', 'last_name'),
-			'iin' => Yii::t('profile/profile', 'iin'),
-			'birth_date' => Yii::t('profile/profile', 'birth_date'),
-			'sex' => Yii::t('profile/profile', 'sex'),
+			'first_name' => Yii::t('profile/person', 'first_name'),
+			'last_name' => Yii::t('profile/person', 'last_name'),
+			'iin' => Yii::t('profile/person', 'iin'),
+			'birth_date' => Yii::t('profile/person', 'birth_date'),
+			'sex' => Yii::t('profile/person', 'sex'),
 		];
 	}
 	

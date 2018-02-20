@@ -2,22 +2,14 @@
 
 namespace yii2module\profile\module\controllers;
 
-use yii2lab\helpers\Behavior;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use yii2module\profile\domain\forms\AvatarForm;
 use yii2module\profile\module\forms\ProfileForm;
 use yii2lab\notify\domain\widgets\Alert;
 use Yii;
-use yii\web\Controller;
 
-class PersonController extends Controller {
-	
-	public function behaviors() {
-		return [
-			'access' => Behavior::access('@'),
-		];
-	}
-	
+class PersonController extends BaseController {
+
 	public function actionIndex() {
 		return $this->render('index', [
 			'modelMain' => $this->mainForm(),

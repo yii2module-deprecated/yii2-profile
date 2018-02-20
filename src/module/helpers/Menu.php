@@ -12,31 +12,31 @@ class Menu {
 			[
 				'url' => 'profile/person',
 				'icon' => 'address-card-o',
-				'label' => ['profile/profile', 'person_title'],
+				'label' => ['profile/person', 'title'],
 				'visible' => in_array('person', $actionList),
 			],
 			[
 				'url' => 'profile/address',
 				'icon' => 'map-marker',
-				'label' => ['profile/profile', 'address_title'],
+				'label' => ['profile/address', 'title'],
 				'visible' => in_array('address', $actionList),
 			],
 			[
 				'url' => 'profile/car',
 				'icon' => 'car',
-				'label' => ['profile/profile', 'car_title'],
+				'label' => ['profile/car', 'title'],
 				'visible' => in_array('car', $actionList),
 			],
 			[
 				'url' => 'profile/security',
 				'icon' => 'lock',
-				'label' => ['profile/profile', 'security_title'],
+				'label' => ['profile/security', 'title'],
 				'visible' => in_array('security', $actionList),
 			],
 			[
 				'url' => 'profile/qr',
 				'icon' => 'qrcode',
-				'label' => ['profile/profile', 'qr_title'],
+				'label' => ['profile/qr', 'title'],
 				'visible' => in_array('qr', $actionList),
 			],
 		];

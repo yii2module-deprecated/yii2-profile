@@ -24,8 +24,8 @@ use yii\widgets\ActiveForm;
 		<?= $form->field($modelMain, 'iin')->textInput(); ?>
 
 		<?= $form->field($modelMain, 'sex')->radioList([
-			0 => Yii::t('profile/profile', 'sex_male'),
-			1 => Yii::t('profile/profile', 'sex_female'),
+			0 => Yii::t('profile/person', 'sex_male'),
+			1 => Yii::t('profile/person', 'sex_female'),
 		]); ?>
 
 		<div class="form-group">
