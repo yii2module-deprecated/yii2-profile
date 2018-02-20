@@ -5,11 +5,10 @@ namespace yii2module\profile\module\controllers;
 use yii2lab\helpers\Behavior;
 use yii2module\account\module\forms\ChangePasswordForm;
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use yii2lab\notify\domain\widgets\Alert;
-use yii2module\account\domain\forms\ChangeEmailForm;
+use yii2module\account\domain\v1\forms\ChangeEmailForm;
 
 class SecurityController extends Controller {
 	
