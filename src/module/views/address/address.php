@@ -1,5 +1,6 @@
 <?php
 
+use common\enums\app\ApiVersionEnum;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\web\View;
@@ -18,6 +19,11 @@ use yii2lab\geo\widgets\GeoSelector;
             'model' => $model,
 	        'default' => [
 	            'country_id' => 1894,
+            ],
+            'url' => [
+                'country' => ApiVersionEnum::VERSION_DEFAULT . '/country',
+                'region' => ApiVersionEnum::VERSION_DEFAULT . '/region',
+                'city' => ApiVersionEnum::VERSION_DEFAULT . '/city',
             ],
         ]) ?>
 
