@@ -12,7 +12,7 @@ class IinRepository extends ActiveCoreRepository {
 	public $baseUri = 'user-iin';
 	
 	public function forgeEntity($data, $class = null) {
-		$class = ProfileEntity::className();
+		$class = ProfileEntity::class;
 		return parent::forgeEntity($data, $class);
 	}
 	

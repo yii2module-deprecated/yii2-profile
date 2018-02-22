@@ -10,7 +10,7 @@ class IinRepository extends ActiveDiscRepository {
 	public $table = 'iin';
 
 	public function forgeEntity($data, $class = null) {
-		return parent::forgeEntity($data, ProfileEntity::className());
+		return parent::forgeEntity($data, ProfileEntity::class);
 	}
 
 }

@@ -34,13 +34,13 @@ class ProfileEntity extends BaseEntity {
 			[['first_name', 'last_name', 'iin', 'birth_date'], 'trim'],
 			[
 				'birth_date',
-				DateValidator::className(),
+				DateValidator::class,
 				'type' => DateValidator::TYPE_DATE,
 				'format' => 'yyyy-MM-dd',
 				'max' => date('Y-m-d', $maxBirthDate)
 			],
 			[['sex'], 'boolean'],
-			['iin', IinValidator::className()],
+			['iin', IinValidator::class],
 		];
 	}
 	

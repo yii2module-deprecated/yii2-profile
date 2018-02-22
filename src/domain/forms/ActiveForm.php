@@ -21,7 +21,7 @@ class ActiveForm extends Model{
 	public function fieldType() {
 		return [
 			'provider' => [
-				'type' => ProviderEntity::className(),
+				'type' => ProviderEntity::class,
 			],
 		];
 	}
@@ -29,7 +29,7 @@ class ActiveForm extends Model{
 		return [
 			[['active_id', 'data', 'provider_id', 'currency_code'], 'required'],
 			[['active_id', 'provider_id', 'currency_code'], 'integer'],
-			[['data'], JsonValidator::className()],
+			[['data'], JsonValidator::class],
 		];
 	}
 }

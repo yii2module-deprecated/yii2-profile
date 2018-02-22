@@ -22,10 +22,10 @@ class ActiveEntity extends BaseEntity {
 	public function fieldType() {
 		return [
 			'provider' => [
-				'type' => ProviderEntity::className(),
+				'type' => ProviderEntity::class,
 			],
 			'type' => [
-				'type' => TypeEntity::className(),
+				'type' => TypeEntity::class,
 			],
 		];
 	}
@@ -34,7 +34,7 @@ class ActiveEntity extends BaseEntity {
 		return [
 			[['active_id', 'data', 'provider_id', 'currency_code'], 'required'],
 			[['active_id', 'provider_id', 'currency_code'], 'integer'],
-			[['data'], JsonValidator::className()],
+			[['data'], JsonValidator::class],
 		];
 	}
 	

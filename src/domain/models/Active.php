@@ -22,7 +22,7 @@ class Active extends ActiveRecord
 	{
 		return [
 			[
-				'class' => JsonBehavior::className(),
+				'class' => JsonBehavior::class,
 				'attributes' => ['data'],
 			],
 		];
@@ -48,7 +48,7 @@ class Active extends ActiveRecord
 	 */
 	public function getType()
 	{
-		return $this->hasOne(Type::className(), [
+		return $this->hasOne(Type::class, [
 			'id' => 'active_id',
 		]);
 	}
@@ -58,7 +58,7 @@ class Active extends ActiveRecord
 	 */
 	public function getProvider()
 	{
-		return $this->hasOne(Provider::className(), [
+		return $this->hasOne(Provider::class, [
 			'id' => 'provider_id',
 		]);
 	}
