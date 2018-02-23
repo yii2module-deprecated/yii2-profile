@@ -3,8 +3,9 @@
 namespace yii2module\profile\module\helpers;
 
 use Yii;
+use yii2lab\helpers\interfaces\MenuInterface;
 
-class Menu {
+class Menu implements MenuInterface {
 	
 	public function toArray() {
 		$actionList = config('modules.profile.actionList', []);
