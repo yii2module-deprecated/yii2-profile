@@ -17,7 +17,7 @@ class CarController extends BaseController {
 			if($model->validate()) {
 				try{
 					Yii::$app->profile->car->updateSelf($model);
-					Yii::$app->notify->flash->send(['account/car', 'saved_success'], Alert::TYPE_SUCCESS);
+					Yii::$app->navigation->alert->create(['account/car', 'saved_success'], Alert::TYPE_SUCCESS);
 				} catch (UnprocessableEntityHttpException $e){
 					$model->addErrorsFromException($e);
 				}

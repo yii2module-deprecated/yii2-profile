@@ -25,7 +25,7 @@ class SecurityController extends BaseController {
 			if($model->validate()) {
 				try {
 					Yii::$app->account->security->changeEmail($model->getAttributes());
-					Yii::$app->notify->flash->send(['profile/profile', 'email_changed_success'], Alert::TYPE_SUCCESS);
+					Yii::$app->navigation->alert->create(['profile/profile', 'email_changed_success'], Alert::TYPE_SUCCESS);
 				} catch (UnprocessableEntityHttpException $e) {
 					$model->addErrorsFromException($e);
 				}
@@ -45,7 +45,7 @@ class SecurityController extends BaseController {
 				$bodyPassword = $model->getAttributes(['password', 'new_password']);
 				try {
 					Yii::$app->account->security->changePassword($bodyPassword);
-					Yii::$app->notify->flash->send(['profile/profile', 'password_changed_success'], Alert::TYPE_SUCCESS);
+					Yii::$app->navigation->alert->create(['profile/profile', 'password_changed_success'], Alert::TYPE_SUCCESS);
 				} catch (UnprocessableEntityHttpException $e) {
 					$model->addErrorsFromException($e);
 				}

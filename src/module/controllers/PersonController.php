@@ -26,7 +26,7 @@ class PersonController extends BaseController {
 			if($model->validate()) {
 				try{
 					Yii::$app->profile->profile->updateSelf($model);
-					Yii::$app->notify->flash->send(['profile/profile', 'saved_success'], Alert::TYPE_SUCCESS);
+					Yii::$app->navigation->alert->create(['profile/profile', 'saved_success'], Alert::TYPE_SUCCESS);
 				} catch (UnprocessableEntityHttpException $e){
 					$model->addErrorsFromException($e);
 				}
@@ -43,12 +43,12 @@ class PersonController extends BaseController {
 		if(Yii::$app->request->isPost) {
 			if(Yii::$app->request->post('submit')==='delete') {
 				Yii::$app->profile->avatar->deleteSelf();
-				Yii::$app->notify->flash->send(['profile/avatar', 'delete_success'], Alert::TYPE_SUCCESS);
+				Yii::$app->navigation->alert->create(['profile/avatar', 'delete_success'], Alert::TYPE_SUCCESS);
 			} else {
 				if($model->validate()) {
 					try{
 						Yii::$app->profile->avatar->updateSelf($model->imageFile);
-						Yii::$app->notify->flash->send(['profile/avatar', 'uploaded_success'], Alert::TYPE_SUCCESS);
+						Yii::$app->navigation->alert->create(['profile/avatar', 'uploaded_success'], Alert::TYPE_SUCCESS);
 					} catch (UnprocessableEntityHttpException $e){
 						$model->addErrorsFromException($e);
 					}
