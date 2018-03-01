@@ -1,7 +1,7 @@
 <?php
 
 use yii\bootstrap\Nav;
-use yii2lab\helpers\MenuHelper;
+use yii2lab\extension\menu\helpers\MenuHelper;
 
 echo Nav::widget([
 	'options' => [
