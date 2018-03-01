@@ -8,7 +8,7 @@ use common\enums\app\ApiVersionEnum;
 
 class IinRepository extends ActiveCoreRepository {
 	
-	public $version = ApiVersionEnum::VERSION_4;
+	public $version = 'v4';
 	public $baseUri = 'user-iin';
 	
 	public function forgeEntity($data, $class = null) {
