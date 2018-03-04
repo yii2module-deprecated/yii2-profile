@@ -11,7 +11,7 @@ use yii2lab\domain\services\ActiveBaseService;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 
-class ProfileService extends ActiveBaseService {
+class PersonService extends ActiveBaseService {
 	
 	public function getSelf() {
 		$login = Yii::$app->user->identity->login;

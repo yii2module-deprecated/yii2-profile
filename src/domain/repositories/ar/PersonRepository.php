@@ -7,7 +7,7 @@ use yii2lab\domain\repositories\ActiveArRepository;
 use Yii;
 use yii\db\ActiveRecord;
 
-class ProfileRepository extends ActiveArRepository {
+class PersonRepository extends ActiveArRepository {
 	
 	protected $primaryKey = 'login';
 	

@@ -3,11 +3,12 @@
 namespace yii2module\profile\domain\entities;
 
 use yii2lab\domain\BaseEntity;
+use yii2lab\misc\enums\TimeEnum;
 use yii2lab\validator\IinValidator;
 use Yii;
 use yii\validators\DateValidator;
 
-class ProfileEntity extends BaseEntity {
+class PersonEntity extends BaseEntity {
 	
 	protected $login;
 	protected $first_name;
@@ -29,7 +30,7 @@ class ProfileEntity extends BaseEntity {
 	 */
 	public function rules()
 	{
-		$maxBirthDate = time() - 60 * 60 * 24;
+		$maxBirthDate = time() - TimeEnum::SECOND_PER_DAY;
 		return [
 			[['first_name', 'last_name', 'iin', 'birth_date'], 'trim'],
 			[

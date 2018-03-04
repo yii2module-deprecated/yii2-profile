@@ -25,14 +25,14 @@ class PersonController extends BaseController {
 			$model->setAttributes($body, false);
 			if($model->validate()) {
 				try{
-					Yii::$app->profile->profile->updateSelf($model);
+					Yii::$app->profile->person->updateSelf($model);
 					Yii::$app->navigation->alert->create(['profile/profile', 'saved_success'], Alert::TYPE_SUCCESS);
 				} catch (UnprocessableEntityHttpException $e){
 					$model->addErrorsFromException($e);
 				}
 			}
 		} else {
-			$entity = Yii::$app->profile->profile->getSelf();
+			$entity = Yii::$app->profile->person->getSelf();
 			$model->setAttributes($entity->toArray(), false);
 		}
 		return $model;

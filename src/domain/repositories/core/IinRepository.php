@@ -2,7 +2,7 @@
 
 namespace yii2module\profile\domain\repositories\core;
 
-use yii2module\profile\domain\entities\ProfileEntity;
+use yii2module\profile\domain\entities\PersonEntity;
 use yii2lab\domain\repositories\ActiveCoreRepository;
 use common\enums\app\ApiVersionEnum;
 
@@ -12,7 +12,7 @@ class IinRepository extends ActiveCoreRepository {
 	public $baseUri = 'user-iin';
 	
 	public function forgeEntity($data, $class = null) {
-		$class = ProfileEntity::class;
+		$class = PersonEntity::class;
 		return parent::forgeEntity($data, $class);
 	}
 	
