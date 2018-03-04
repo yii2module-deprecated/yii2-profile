@@ -4,7 +4,7 @@ namespace yii2module\profile\domain\models;
 
 use yii\db\ActiveRecord;
 
-class Profile extends ActiveRecord
+class Person extends ActiveRecord
 {
 
 	/**

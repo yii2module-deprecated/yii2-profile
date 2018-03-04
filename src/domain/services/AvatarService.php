@@ -16,7 +16,7 @@ use Yii;
 class AvatarService extends ActiveBaseService {
 	
 	public function getSelf() {
-		$profile = $this->domain->profile->getSelf();
+		$profile = $this->domain->person->getSelf();
 		$entity = $this->repository->forgeEntity([
 			'name' => $profile->avatar,
 			'url' => $profile->avatar_url,
@@ -35,9 +35,9 @@ class AvatarService extends ActiveBaseService {
 	}
 	
 	private function changeAvatarInProfile($name) {
-		$profile = $this->domain->profile->getSelf();
+		$profile = $this->domain->person->getSelf();
 		$body['avatar'] = $name;
-		$this->domain->profile->updateById($profile->login, $body);
+		$this->domain->person->updateById($profile->login, $body);
 	}
 	
 }
