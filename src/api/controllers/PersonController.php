@@ -8,7 +8,7 @@ use yii2lab\helpers\Behavior;
 class PersonController extends Controller
 {
 
-	public $serviceName = 'profile.profile';
+	public $serviceName = 'profile.person';
 
 	public function format() {
 		return [
