@@ -12,13 +12,6 @@ class AvatarController extends Controller {
 	
 	public $serviceName = 'profile.avatar';
 	
-	public function format() {
-		return [
-			'sex' => 'boolean',
-			'birth_date' => 'time:api',
-		];
-	}
-	
 	public function getSelf() {
 		return $this->repository->getSelf();
 	}

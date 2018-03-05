@@ -9,13 +9,6 @@ class IinController extends Controller
 
 	public $serviceName = 'profile.iin';
 
-	public function format() {
-		return [
-			'creation_date' => 'time:api',
-			'birth_date' => 'time:api',
-		];
-	}
-
 	/**
 	 * @inheritdoc
 	 */

@@ -13,7 +13,6 @@ class PersonController extends Controller
 	public function format() {
 		return [
 			'sex' => 'boolean',
-			'birth_date' => 'time:api',
 		];
 	}
 
