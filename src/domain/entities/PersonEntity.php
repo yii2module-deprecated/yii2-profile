@@ -3,6 +3,7 @@
 namespace yii2module\profile\domain\entities;
 
 use yii2lab\domain\BaseEntity;
+use yii2lab\domain\values\TimeValue;
 use yii2lab\misc\enums\TimeEnum;
 use yii2lab\validator\IinValidator;
 use Yii;
@@ -22,6 +23,7 @@ class PersonEntity extends BaseEntity {
 	public function fieldType() {
 		return [
 			'iin' => 'string',
+			'birth_date' => TimeValue::class,
 		];
 	}
 
