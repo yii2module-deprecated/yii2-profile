@@ -13,7 +13,7 @@ class CarRepository extends ActiveArRepository {
 	
 	public function insert(BaseEntity $entity) {
 		$entity->validate();
-		$model = Yii::createObject($this->model->className());
+		$model = Yii::createObject(get_class($this->model));
 		$this->massAssignmentForInsert($model, $entity);
 		$this->saveModel($model);
 	}
