@@ -9,7 +9,10 @@ use yii\db\ActiveRecord;
 
 class CarRepository extends ActiveArRepository {
 	
-	protected $primaryKey = 'login';
+	public function tableName()
+	{
+		return 'profile_car';
+	}
 	
 	public function insert(BaseEntity $entity) {
 		$entity->validate();

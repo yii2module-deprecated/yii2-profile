@@ -9,10 +9,14 @@ use yii\db\ActiveRecord;
 
 class PersonRepository extends ActiveArRepository {
 	
-	protected $primaryKey = 'login';
+	public function tableName()
+	{
+		return 'profile_person';
+	}
 	
 	public function insert(BaseEntity $entity) {
 		$entity->validate();
+		/** @var ActiveRecord $model */
 		$model = Yii::createObject(get_class($this->model));
 		$this->massAssignmentForInsert($model, $entity);
 		$this->saveModel($model);
@@ -23,4 +27,5 @@ class PersonRepository extends ActiveArRepository {
 		$data = $this->unsetNotExistedFields($model, $data);
 		Yii::configure($model, $data);
 	}
+	
 }

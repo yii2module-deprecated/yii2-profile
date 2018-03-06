@@ -2,10 +2,8 @@
 
 namespace yii2module\profile\domain\v2\repositories\upload;
 
-use yii2lab\domain\BaseEntity;
 use yii2lab\domain\data\Query;
 use yii2lab\domain\helpers\ErrorCollection;
-use yii2lab\domain\interfaces\repositories\CrudInterface;
 use yii2lab\domain\repositories\FileRepository;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use Yii;
@@ -13,16 +11,18 @@ use yii\helpers\FileHelper;
 use yii\imagine\Image;
 use yii\web\UploadedFile;
 
-class AvatarRepository extends FileRepository {
+class AvatarUploadRepository extends FileRepository {
 	
 	public $quality = 90;
-	public $defaultName = 'default';
 	public $size = 256;
 	public $format = 'png';
 	public $pathName = 'avatar';
 	
 	public function all(Query $query = null) {
-		$personEntity = Yii::$app->profile->person->one($query);
+		
+		$loginEntity = Yii::$app->account->login->one($query);
+		$personEntity = Yii::$app->profile->person->oneById($loginEntity->id);
+		//prr($personEntity,1,1);
 		$entity = $this->forgeEntity([[
 			'name' => $personEntity->avatar,
 			'url' => $personEntity->avatar_url,
@@ -30,14 +30,21 @@ class AvatarRepository extends FileRepository {
 		return $entity;
 	}
 	
-	public function count(Query $query = null) {
-		// TODO: Implement count() method.
-	}
-	
 	public function oneById($id, Query $query = null) {
-	
+		prr(1,1,1);
+		$query2 = Query::forge();
+		$query2->with('profile.person');
+		$loginEntity = Yii::$app->account->login->oneById($id, $query2);
+		//prr($loginEntity,1,1);
+		$personEntity = Yii::$app->profile->person->oneById($loginEntity->id);
+		$entity = $this->forgeEntity([[
+			'id' => $loginEntity->id,
+			'login' => $personEntity->login,
+			'name' => $personEntity->avatar,
+			'url' => $personEntity->avatar_url,
+		]]);
+		return $entity;
 	}
-	
 	
 	public function save($avatar, $userId) {
 		$originalFileName = $this->saveOriginal($avatar, $userId);

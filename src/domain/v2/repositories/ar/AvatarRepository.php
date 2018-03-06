@@ -7,11 +7,13 @@ use yii2lab\domain\repositories\ActiveArRepository;
 use Yii;
 use yii\db\ActiveRecord;
 
-class AddressRepository extends ActiveArRepository {
+class AvatarRepository extends ActiveArRepository {
+	
+	public $defaultName = 'default';
 	
 	public function tableName()
 	{
-		return 'profile_address';
+		return 'profile_avatar';
 	}
 	
 	public function insert(BaseEntity $entity) {

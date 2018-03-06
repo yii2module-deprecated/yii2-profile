@@ -13,32 +13,24 @@ class ProfileRepository extends BaseRepository {
 	
 	use ActiveRepositoryTrait;
 	
-	protected $primaryKey = 'login';
+	protected $primaryKey = 'id';
 	
 	public function relations() {
 		return [
 			'address' => [
 				'type' => RelationEnum::ONE,
-				'field' => 'login',
+				'field' => 'id',
 				'foreign' => [
 					'id' => 'profile.address',
-					'field' => 'login',
+					'field' => 'id',
 				],
 			],
-			/*'avatar' => [
-				'type' => RelationEnum::ONE,
-				'field' => 'login',
-				'foreign' => [
-					'id' => 'profile.avatar',
-					'field' => 'login',
-				],
-			],*/
 			'person' => [
 				'type' => RelationEnum::ONE,
-				'field' => 'login',
+				'field' => 'id',
 				'foreign' => [
 					'id' => 'profile.person',
-					'field' => 'login',
+					'field' => 'id',
 				],
 			],
 		];
@@ -46,11 +38,11 @@ class ProfileRepository extends BaseRepository {
 	
 	public function one(Query $query = null) {
 		$query = Query::forge($query);
+		//prr($query->toArray());
 		$login = $query->getParam('where.login');
 		$loginEntity = Yii::$app->account->login->oneByLogin($login);
 		$entity = $this->forgeEntity([
 			'id' => $loginEntity->id,
-			'login' => $loginEntity->login,
 		]);
 		if(!empty($query->getParam('with'))) {
 			$entity = RelationHelper::load($this->domain->id, $this->id, $query, $entity);

@@ -10,19 +10,19 @@ use yii\web\NotFoundHttpException;
 class AddressService extends ActiveBaseService {
 	
 	public function getSelf() {
-		$login = Yii::$app->user->identity->login;
+		$id = Yii::$app->user->identity->id;
 		try {
-			$profile = $this->oneById($login);
+			$profile = $this->oneById($id);
 		} catch (NotFoundHttpException $e) {
-			$this->create(['login' => $login]);
-			$profile = $this->oneById($login);
+			$this->create(['id' => $id]);
+			$profile = $this->oneById($id);
 		}
 		return $profile;
 	}
 	
 	public function updateSelf($body) {
 		$profile = $this->getSelf();
-		$this->updateById($profile->login, $body);
+		$this->updateById($profile->id, $body);
 	}
 	
 }

@@ -13,12 +13,12 @@ use yii\web\NotFoundHttpException;
 class PersonService extends ActiveBaseService {
 	
 	public function getSelf() {
-		$login = Yii::$app->user->identity->login;
+		$id = Yii::$app->user->identity->id;
 		try {
-			$profile = $this->oneById($login);
+			$profile = $this->oneById($id);
 		} catch(NotFoundHttpException $e) {
-			$this->create(['login' => $login]);
-			$profile = $this->oneById($login);
+			$this->create(['id' => $id]);
+			$profile = $this->oneById($id);
 		}
 		return $profile;
 	}
@@ -37,7 +37,7 @@ class PersonService extends ActiveBaseService {
 			}*/
 			$this->validateIin($body);
 		}
-		$this->updateById($profile->login, $body);
+		$this->updateById($profile->id, $body);
 	}
 	
 	private function validateIin($body) {

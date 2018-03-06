@@ -6,7 +6,7 @@ use yii2lab\domain\BaseEntity;
 
 class AddressEntity extends BaseEntity {
 	
-	protected $login;
+	protected $id;
 	protected $country_id;
 	protected $region_id;
 	protected $city_id;

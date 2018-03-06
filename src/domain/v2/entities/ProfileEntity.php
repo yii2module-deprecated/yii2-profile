@@ -8,6 +8,7 @@ use yii2lab\domain\BaseEntity;
  * Class ProfileEntity
  *
  * @package yii2module\profile\domain\v2\entities
+ * @property int $id
  * @property PersonEntity $person
  * @property AddressEntity $address
  * @property AvatarEntity $avatar
@@ -15,7 +16,6 @@ use yii2lab\domain\BaseEntity;
 class ProfileEntity extends BaseEntity {
 	
 	protected $id;
-	protected $login;
 	protected $person;
 	protected $address;
 	protected $avatar;

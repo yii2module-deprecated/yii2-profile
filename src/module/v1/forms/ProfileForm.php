@@ -13,8 +13,7 @@ class ProfileForm extends Model
 	public $iin;
 	public $birth_date;
 	public $sex;
-
-
+	
 	/**
 	 * @inheritdoc
 	 */
