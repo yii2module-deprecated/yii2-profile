@@ -13,8 +13,6 @@ class ProfileRepository extends BaseRepository {
 	
 	use ActiveRepositoryTrait;
 	
-	protected $primaryKey = 'id';
-	
 	public function relations() {
 		return [
 			'address' => [
@@ -22,6 +20,14 @@ class ProfileRepository extends BaseRepository {
 				'field' => 'id',
 				'foreign' => [
 					'id' => 'profile.address',
+					'field' => 'id',
+				],
+			],
+			'avatar' => [
+				'type' => RelationEnum::ONE,
+				'field' => 'id',
+				'foreign' => [
+					'id' => 'profile.avatar',
 					'field' => 'id',
 				],
 			],
@@ -38,9 +44,8 @@ class ProfileRepository extends BaseRepository {
 	
 	public function one(Query $query = null) {
 		$query = Query::forge($query);
-		//prr($query->toArray());
-		$login = $query->getParam('where.login');
-		$loginEntity = Yii::$app->account->login->oneByLogin($login);
+		$id = $query->getParam('where.id');
+		$loginEntity = Yii::$app->account->login->oneById($id);
 		$entity = $this->forgeEntity([
 			'id' => $loginEntity->id,
 		]);

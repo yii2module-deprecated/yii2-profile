@@ -18,7 +18,7 @@ class AvatarEntity extends BaseEntity {
 				$this->url = env('servers.static.domain') . $repository->defaultName;
 			} else {
 				$baseUrl = env('servers.static.domain') . param('static.path.avatar') . '/';
-				$this->url = $baseUrl . $this->name . '.' . $repository->format;
+				$this->url = $baseUrl . $this->name . '.' . Yii::$app->profile->repositories->avatarUpload->format;
 			}
 		}
 		return $this->url;
