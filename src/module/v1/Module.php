@@ -1,6 +1,6 @@
 <?php
 
-namespace yii2module\profile\module;
+namespace yii2module\profile\module\v1;
 
 use yii\base\Module as YiiModule;
 

@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 		<?= $form->field($modelPassword, 'password')->passwordInput() ?>
 
 		<div class="form-group">
-			<?= Html::submitButton(t('action', 'update'), ['class' => 'btn btn-primary']) ?>
+			<?= Html::submitButton(Yii::t('action', 'update'), ['class' => 'btn btn-primary']) ?>
 		</div>
 
 		<?php ActiveForm::end(); ?>
@@ -38,7 +38,7 @@ use yii\widgets\ActiveForm;
 		<?= $form->field($modelEmail, 'password')->passwordInput() ?>
 
 		<div class="form-group">
-			<?= Html::submitButton(t('action', 'update'), ['class' => 'btn btn-primary']) ?>
+			<?= Html::submitButton(Yii::t('action', 'update'), ['class' => 'btn btn-primary']) ?>
 		</div>
 
 		<?php ActiveForm::end(); ?>

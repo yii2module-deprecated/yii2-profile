@@ -1,6 +1,6 @@
 <?php
 
-namespace yii2module\profile\module\helpers;
+namespace yii2module\profile\module\v1\helpers;
 
 use Yii;
 use yii2lab\extension\menu\interfaces\MenuInterface;

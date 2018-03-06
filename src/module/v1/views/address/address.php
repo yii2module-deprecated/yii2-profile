@@ -34,7 +34,7 @@ use yii2lab\geo\widgets\GeoSelector;
         <?= $form->field($model, 'apartment')->textInput(['id'=>'apartment','placeholder'=>$model->apartment]) ?>
         
         <div class="form-group">
-            <?= Html::submitButton(t('action', 'save'), ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton(Yii::t('action', 'save'), ['class' => 'btn btn-primary']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

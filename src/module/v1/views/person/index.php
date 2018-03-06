@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
 		]); ?>
 
 		<div class="form-group">
-			<?= Html::submitButton(t('action', 'save'), ['class' => 'btn btn-primary']) ?>
+			<?= Html::submitButton(Yii::t('action', 'save'), ['class' => 'btn btn-primary']) ?>
 		</div>
 
 		<?php ActiveForm::end(); ?>
@@ -45,7 +45,7 @@ use yii\widgets\ActiveForm;
 	    <?= $form->field($modelAvatar, 'imageFile')->fileInput() ?>
 
         <div class="form-group">
-		    <?= Html::submitButton(t('action', 'upload'), ['class' => 'btn btn-primary']) ?>
+		    <?= Html::submitButton(Yii::t('action', 'upload'), ['class' => 'btn btn-primary']) ?>
         </div>
 	
 	    <?php ActiveForm::end() ?>
@@ -54,7 +54,7 @@ use yii\widgets\ActiveForm;
 		    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
             <div class="form-group">
-			    <?= Html::submitButton(t('action', 'delete'), [
+			    <?= Html::submitButton(Yii::t('action', 'delete'), [
 				    'class' => 'btn btn-danger',
 				    'value' => 'delete',
 				    'name' => 'submit',

@@ -1,6 +1,6 @@
 <?php
 
-namespace yii2module\profile\module\forms;
+namespace yii2module\profile\module\v1\forms;
 
 use Yii;
 use yii2lab\domain\base\Model;

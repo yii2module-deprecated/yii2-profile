@@ -1,6 +1,6 @@
 <?php
 
-namespace yii2module\profile\module\controllers;
+namespace yii2module\profile\module\v1\controllers;
 
 use yii2module\account\module\forms\ChangePasswordForm;
 use Yii;

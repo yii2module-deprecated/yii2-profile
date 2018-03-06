@@ -1,8 +1,8 @@
 <?php
 
-namespace yii2module\profile\module\controllers;
+namespace yii2module\profile\module\v1\controllers;
 
-use yii2module\profile\module\forms\AddressForm;
+use yii2module\profile\module\v1\forms\AddressForm;
 use Yii;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use yii2lab\notify\domain\widgets\Alert;

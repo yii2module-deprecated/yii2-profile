@@ -6,7 +6,7 @@
  * Time: 11:52
  */
 
-namespace yii2module\profile\module\forms;
+namespace yii2module\profile\module\v1\forms;
 
 
 use Yii;
