@@ -3,7 +3,7 @@
 namespace yii2module\profile\module\forms;
 
 use Yii;
-use yii2module\profile\domain\entities\CarEntity;
+use yii2module\profile\domain\v1\entities\CarEntity;
 use yii2lab\domain\base\Model;
 
 class CarForm extends Model
