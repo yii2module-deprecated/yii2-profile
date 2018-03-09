@@ -3,6 +3,7 @@
 namespace yii2module\profile\domain\v2\services;
 
 use Yii;
+use yii\web\BadRequestHttpException;
 use yii2lab\domain\data\Query;
 use yii2lab\domain\helpers\ServiceHelper;
 use yii2lab\domain\services\ActiveBaseService;
@@ -20,7 +21,14 @@ class ProfileService extends ActiveBaseService {
 		$with = $query->getParam('with');
 		$profileEntity = new ProfileEntity();
 		foreach($with as $item) {
-			$profileEntity->{$item} = ServiceHelper::oneById($this->domain->id . DOT . $item, $id);
+			if(preg_match('#[^a-z]+#i', $item)) {
+				throw new BadRequestHttpException('Bad name for relation "' . $item . '"');
+			}
+			$serviceName = $this->domain->id . DOT . $item;
+			if(! ServiceHelper::has($serviceName)) {
+				throw new BadRequestHttpException('Service "' . $item . '" not found');
+			}
+			$profileEntity->{$item} = ServiceHelper::oneById($serviceName, $id);
 		}
 		return $profileEntity;
 	}
