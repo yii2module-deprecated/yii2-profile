@@ -2,9 +2,8 @@
 
 namespace yii2module\profile\domain\v2\services;
 
-use yii\web\NotFoundHttpException;
-use yii2lab\domain\services\ActiveBaseService;
 use Yii;
+use yii2module\profile\domain\v2\interfaces\services\AvatarInterface;
 use yii2module\profile\domain\v2\repositories\ar\AvatarRepository;
 
 /**
@@ -14,27 +13,17 @@ use yii2module\profile\domain\v2\repositories\ar\AvatarRepository;
  *
  * @property AvatarRepository $repository
  */
-class AvatarService extends ActiveBaseService {
-	
-	public function getSelf() {
-		$id = Yii::$app->user->identity->id;
-		try {
-			$entity = $this->repository->oneById($id);
-		} catch(NotFoundHttpException $e) {
-			$entity = $this->domain->factory->entity->create('avatar', [
-				'id' => $id,
-			]);
-		}
-		return $entity;
-	}
+class AvatarService extends BaseService implements AvatarInterface {
 	
 	public function updateSelf($avatar) {
-		$name = $this->domain->repositories->avatarUpload->save($avatar, Yii::$app->user->id);
+		$id = Yii::$app->user->id;
+		$name = $this->domain->repositories->avatarUpload->save($avatar, $id);
 		$this->changeAvatarInProfile($name);
 	}
 	
 	public function deleteSelf() {
-		$this->domain->repositories->avatarUpload->delete(Yii::$app->user->id);
+		$id = Yii::$app->user->id;
+		$this->domain->repositories->avatarUpload->delete($id);
 		$this->changeAvatarInProfile(null);
 	}
 	

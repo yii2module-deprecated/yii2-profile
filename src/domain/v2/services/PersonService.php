@@ -5,28 +5,14 @@ namespace yii2module\profile\domain\v2\services;
 use yii2lab\domain\helpers\ErrorCollection;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use yii2lab\validator\helpers\IinParser;
-use Yii;
-use yii2lab\domain\services\ActiveBaseService;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 
-class PersonService extends ActiveBaseService {
-	
-	public function getSelf() {
-		$id = Yii::$app->user->identity->id;
-		try {
-			$profile = $this->oneById($id);
-		} catch(NotFoundHttpException $e) {
-			$this->create(['id' => $id]);
-			$profile = $this->oneById($id);
-		}
-		return $profile;
-	}
+class PersonService extends BaseService {
 	
 	public function updateSelf($body) {
 		$profile = $this->getSelf();
 		$body = ArrayHelper::toArray($body);
-		unset($body['avatar']);
 		if(!empty($body['iin'])) {
 			$profile->iin = $body['iin'];
 			$profile->validate();
