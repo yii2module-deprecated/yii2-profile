@@ -13,11 +13,16 @@ class Avatar extends Widget {
 	public $userId;
 	public $service = 'profile.avatar';
 	public $height = 19;
+	public $entity;
 	
 	public function run() {
-		$userId = isset($this->userId) ? $this->userId : Yii::$app->user->id;
 		/** @var AvatarEntity $avatarEntity */
-		$avatarEntity = ServiceHelper::oneById($this->service, $userId);
+		if(isset($this->entity) && $this->entity instanceof AvatarEntity) {
+			$avatarEntity = $this->entity;
+		} else {
+			$userId = isset($this->userId) ? $this->userId : Yii::$app->user->id;
+			$avatarEntity = ServiceHelper::oneById($this->service, $userId);
+		}
 		if(is_object($avatarEntity) && $avatarEntity instanceof AvatarEntity) {
 			echo Html::img($avatarEntity->url, ['height' => $this->height]);
 		}

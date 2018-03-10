@@ -7,6 +7,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii2module\profile\widget\Avatar;
+
 ?>
 
 <?= $this->context->renderPartial('..\_navigation'); ?>
@@ -14,8 +16,9 @@ use yii\widgets\ActiveForm;
 <div class="row">
  
     <div class="col-lg-3">
-        <img src="<?= $avatar->url ?>" />
 	
+	    <?= Avatar::widget(['height' => 256, 'entity' => $avatar]) ?>
+     
 	    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 	
 	    <?= $form->field($model, 'imageFile')->fileInput() ?>
