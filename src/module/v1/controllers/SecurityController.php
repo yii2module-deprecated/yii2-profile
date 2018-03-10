@@ -6,12 +6,12 @@ use yii2module\account\module\forms\ChangePasswordForm;
 use Yii;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use yii2lab\notify\domain\widgets\Alert;
-use yii2module\account\domain\v1\forms\ChangeEmailForm;
+use yii2module\account\domain\v2\forms\ChangeEmailForm;
 
 class SecurityController extends BaseController {
 
     public function actionIndex() {
-		return $this->render('security', [
+		return $this->render('update', [
 			'modelPassword' => $this->passwordForm(),
 			'modelEmail' => $this->emailForm(),
 		]);

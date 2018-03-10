@@ -20,6 +20,15 @@ class ProfileService extends ActiveBaseService {
 	public function oneById($id, Query $query = null) {
 		$with = $query->getParam('with');
 		$profileEntity = new ProfileEntity();
+		$profileEntity->id = $id;
+		$profileEntity = $this->loadRelations($profileEntity, $with);
+		return $profileEntity;
+	}
+	
+	private function loadRelations(ProfileEntity $profileEntity, $with) {
+		if(empty($with)) {
+			return $profileEntity;
+		}
 		foreach($with as $item) {
 			if(preg_match('#[^a-z]+#i', $item)) {
 				throw new BadRequestHttpException('Bad name for relation "' . $item . '"');
@@ -28,7 +37,7 @@ class ProfileService extends ActiveBaseService {
 			if(! ServiceHelper::has($serviceName)) {
 				throw new BadRequestHttpException('Service "' . $item . '" not found');
 			}
-			$profileEntity->{$item} = ServiceHelper::oneById($serviceName, $id);
+			$profileEntity->{$item} = ServiceHelper::oneById($serviceName, $profileEntity->id);
 		}
 		return $profileEntity;
 	}
