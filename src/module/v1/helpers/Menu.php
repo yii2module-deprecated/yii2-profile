@@ -28,22 +28,10 @@ class Menu implements MenuInterface {
 				'visible' => true,
 			],
 			[
-				'url' => 'profile/car',
-				'icon' => 'car',
-				'label' => ['profile/car', 'title'],
-				'visible' => false,
-			],
-			[
 				'url' => 'profile/security',
 				'icon' => 'lock',
 				'label' => ['profile/security', 'title'],
 				'visible' => true,
-			],
-			[
-				'url' => 'profile/qr',
-				'icon' => 'qrcode',
-				'label' => ['profile/qr', 'title'],
-				'visible' => false,
 			],
 		];
 		$items = $this->filter($items);

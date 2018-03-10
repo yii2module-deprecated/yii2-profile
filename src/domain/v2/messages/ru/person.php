@@ -7,8 +7,6 @@ return [
 	'address_title' => 'Местоположение',
 	'security_title' => 'Безопасность',
 	'avatar_title' => 'Аватар',
-	'car_title' => 'Транспорт',
-	'qr_title' => 'Мой QR',
 	
 	'first_name' => 'Имя',
 	'last_name' => 'Фамилия',
