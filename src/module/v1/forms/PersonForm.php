@@ -5,7 +5,7 @@ namespace yii2module\profile\module\v1\forms;
 use Yii;
 use yii2lab\domain\base\Model;
 
-class ProfileForm extends Model
+class PersonForm extends Model
 {
 	
 	public $first_name;
