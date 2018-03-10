@@ -31,25 +31,25 @@ class PersonService extends BaseService {
 			$profileEntityWithIin = $this->domain->repositories->iin->oneById($body['iin']);
 		} catch(NotFoundHttpException $e) {
 			$error = new ErrorCollection();
-			$error->add('iin','profile/profile','iin_not_found');
+			$error->add('iin','profile/person','iin_not_found');
 			Throw new UnprocessableEntityHttpException($error);
 		}
 		$isValidFirstName = mb_strtoupper($body['first_name']) == mb_strtoupper($profileEntityWithIin->first_name);
 		$isValidLastName = mb_strtoupper($body['last_name']) == mb_strtoupper($profileEntityWithIin->last_name);
 		$error = new ErrorCollection;
 		if(!$isValidFirstName) {
-			$error->add('first_name', 'profile/profile', 'fake_first_name');
+			$error->add('first_name', 'profile/person', 'fake_first_name');
 		}
 		if(!$isValidLastName) {
-			$error->add('last_name', 'profile/profile', 'fake_last_name');
+			$error->add('last_name', 'profile/person', 'fake_last_name');
 		}
 		$iin = IinParser::parse($body['iin']);
 		if(!$body['sex'] == ($iin['sex'] == 'female')) {
-			$error->add('sex', 'profile/profile', 'fake_sex');
+			$error->add('sex', 'profile/person', 'fake_sex');
 		}
 		$date = $iin['date']['year'] . '-' . $iin['date']['month'] . '-' . $iin['date']['day'];
 		if($date != $body['birth_date']) {
-			$error->add('birth_date', 'profile/profile', 'fake_birth_date');
+			$error->add('birth_date', 'profile/person', 'fake_birth_date');
 		}
 		if($error->count()) {
 			throw new UnprocessableEntityHttpException($error);
