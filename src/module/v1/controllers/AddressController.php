@@ -17,7 +17,7 @@ class AddressController extends BaseController {
 			$model->setAttributes($body['AddressForm'], false);
 			try {
 				Yii::$app->profile->address->updateSelf($model);
-				Yii::$app->navigation->alert->create(['profile/profile', 'saved_success'], Alert::TYPE_SUCCESS);
+				Yii::$app->navigation->alert->create(['profile/address', 'saved_success'], Alert::TYPE_SUCCESS);
 			} catch(UnprocessableEntityHttpException $e) {
 				$model->addErrorsFromException($e);
 			}

@@ -18,7 +18,7 @@ class PersonController extends BaseController {
 			if($model->validate()) {
 				try{
 					Yii::$app->profile->person->updateSelf($model);
-					Yii::$app->navigation->alert->create(['profile/profile', 'saved_success'], Alert::TYPE_SUCCESS);
+					Yii::$app->navigation->alert->create(['profile/person', 'saved_success'], Alert::TYPE_SUCCESS);
 				} catch (UnprocessableEntityHttpException $e){
 					$model->addErrorsFromException($e);
 				}
