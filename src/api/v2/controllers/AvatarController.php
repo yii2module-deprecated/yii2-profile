@@ -6,7 +6,7 @@ use yii2lab\helpers\Behavior;
 use yii2lab\domain\rest\Controller;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use Yii;
-use yii2module\profile\domain\forms\AvatarForm;
+use yii2module\profile\domain\v2\forms\AvatarForm;
 
 class AvatarController extends Controller {
 	
