@@ -35,34 +35,4 @@ use yii\widgets\ActiveForm;
 		<?php ActiveForm::end(); ?>
 	</div>
 
-    <div class="col-lg-1"></div>
-    
-    <div class="col-lg-3">
-        <img src="<?= $avatar->url ?>" />
-	
-	    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
-	
-	    <?= $form->field($modelAvatar, 'imageFile')->fileInput() ?>
-
-        <div class="form-group">
-		    <?= Html::submitButton(Yii::t('action', 'upload'), ['class' => 'btn btn-primary']) ?>
-        </div>
-	
-	    <?php ActiveForm::end() ?>
-	
-	    <?php if($avatar->name) { ?>
-		    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
-
-            <div class="form-group">
-			    <?= Html::submitButton(Yii::t('action', 'delete'), [
-				    'class' => 'btn btn-danger',
-				    'value' => 'delete',
-				    'name' => 'submit',
-			    ]) ?>
-            </div>
-		
-		    <?php ActiveForm::end() ?>
-	    <?php } ?>
-    </div>
-    
 </div>

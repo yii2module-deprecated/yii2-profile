@@ -8,37 +8,42 @@ use yii2lab\extension\menu\interfaces\MenuInterface;
 class Menu implements MenuInterface {
 	
 	public function toArray() {
-		$actionList = config('modules.profile.actionList', []);
 		$items = [
 			[
 				'url' => 'profile/person',
 				'icon' => 'address-card-o',
 				'label' => ['profile/person', 'title'],
-				'visible' => in_array('person', $actionList),
+				'visible' => true,
+			],
+			[
+				'url' => 'profile/avatar',
+				'icon' => 'user-o',
+				'label' => ['profile/avatar', 'title'],
+				'visible' => true,
 			],
 			[
 				'url' => 'profile/address',
 				'icon' => 'map-marker',
 				'label' => ['profile/address', 'title'],
-				'visible' => in_array('address', $actionList),
+				'visible' => true,
 			],
 			[
 				'url' => 'profile/car',
 				'icon' => 'car',
 				'label' => ['profile/car', 'title'],
-				'visible' => in_array('car', $actionList),
+				'visible' => false,
 			],
 			[
 				'url' => 'profile/security',
 				'icon' => 'lock',
 				'label' => ['profile/security', 'title'],
-				'visible' => in_array('security', $actionList),
+				'visible' => true,
 			],
 			[
 				'url' => 'profile/qr',
 				'icon' => 'qrcode',
 				'label' => ['profile/qr', 'title'],
-				'visible' => in_array('qr', $actionList),
+				'visible' => false,
 			],
 		];
 		$items = $this->filter($items);
