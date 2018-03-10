@@ -14,6 +14,7 @@ class Avatar extends Widget {
 	public $service = 'profile.avatar';
 	public $height = 19;
 	public $entity;
+	public $options = [];
 	
 	public function run() {
 		/** @var AvatarEntity $avatarEntity */
@@ -24,7 +25,9 @@ class Avatar extends Widget {
 			$avatarEntity = ServiceHelper::oneById($this->service, $userId);
 		}
 		if(is_object($avatarEntity) && $avatarEntity instanceof AvatarEntity) {
-			echo Html::img($avatarEntity->url, ['height' => $this->height]);
+			$imgOptions = $this->options;
+			$imgOptions['height'] = !empty($imgOptions['height']) ? $imgOptions['height'] : $this->height;
+			echo Html::img($avatarEntity->url, $imgOptions);
 		}
 	}
 	
