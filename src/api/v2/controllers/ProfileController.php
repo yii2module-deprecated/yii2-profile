@@ -10,16 +10,6 @@ class ProfileController extends Controller
 
 	public $serviceName = 'profile.profile';
 
-	public function format() {
-		return [
-			'sex' => 'boolean',
-		];
-	}
-
-	public function getSelf() {
-		return $this->service->getSelf();
-	}
-	
 	/**
 	 * @inheritdoc
 	 */
@@ -39,11 +29,6 @@ class ProfileController extends Controller
 				'class' => 'yii2lab\domain\rest\IndexActionWithQuery',
 				'serviceMethod' => 'getSelf',
 			],
-			/*'update' => [
-				'class' => 'yii2lab\domain\rest\CreateAction',
-				'serviceMethod' => 'updateSelf',
-				'successStatusCode' => 204,
-			],*/
 		];
 	}
 

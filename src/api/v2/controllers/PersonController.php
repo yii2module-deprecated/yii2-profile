@@ -10,16 +10,6 @@ class PersonController extends Controller
 
 	public $serviceName = 'profile.person';
 
-	public function format() {
-		return [
-			'sex' => 'boolean',
-		];
-	}
-
-	public function getSelf() {
-		return $this->repository->getSelf();
-	}
-	
 	/**
 	 * @inheritdoc
 	 */
