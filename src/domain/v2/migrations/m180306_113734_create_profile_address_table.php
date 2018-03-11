@@ -20,7 +20,7 @@ class m180306_113734_create_profile_address_table extends Migration
 			'street' => $this->string(128)->comment('Улица/мкр.'),
 			'home' => $this->string(12)->comment('Номер дома'),
 			'apartment' => $this->integer(12)->comment('Квартира'),
-			'post_code' => $this->integer()->comment('Почтовый индекс'),
+			'zip_code' => $this->integer()->comment('Почтовый индекс'),
 		];
 	}
 

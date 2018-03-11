@@ -14,7 +14,7 @@ class AddressEntity extends BaseEntity {
 	protected $street;
 	protected $home;
 	protected $apartment;
-	protected $post_code;
+	protected $zip_code;
 
 	/**
 	 * @inheritdoc
@@ -22,9 +22,9 @@ class AddressEntity extends BaseEntity {
 	public function rules()
 	{
 		return [
-			[['post_code', 'district', 'street', 'home'], 'trim'],
-			[['country_id', 'region_id', 'city_id', 'apartment', 'post_code'], 'integer'],
-			['post_code', 'string', 'length' => 6],
+			[['zip_code', 'district', 'street', 'home'], 'trim'],
+			[['country_id', 'region_id', 'city_id', 'apartment', 'zip_code'], 'integer'],
+			['zip_code', 'string', 'length' => 6],
 		];
 	}
 	

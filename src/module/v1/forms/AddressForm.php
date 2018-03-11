@@ -23,7 +23,7 @@ class AddressForm extends Model {
 	public $street;
 	public $home;
 	public $apartment;
-	public $post_code;
+	public $zip_code;
 	
 	/**
 	 * @inheritdoc
@@ -37,7 +37,7 @@ class AddressForm extends Model {
 			'street'=> Yii::t('profile/address', 'street'),
 			'home'=> Yii::t('profile/address', 'home'),
 			'apartment'=> Yii::t('profile/address', 'apartment'),
-			'post_code'=> Yii::t('profile/address', 'post_code'),
+			'zip_code'=> Yii::t('profile/address', 'zip_code'),
 		];
 	}
 }

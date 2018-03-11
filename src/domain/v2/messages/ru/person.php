@@ -6,7 +6,7 @@ return [
 	'first_name' => 'Имя',
 	'last_name' => 'Фамилия',
 	'address' => 'Адрес',
-	'post_code' => 'Почтовый индекс',
+	'zip_code' => 'Почтовый индекс',
 
 	'sex_male' => 'муж',
 	'sex_female' => 'жен',
