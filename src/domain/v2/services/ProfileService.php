@@ -30,16 +30,24 @@ class ProfileService extends ActiveBaseService {
 			return $profileEntity;
 		}
 		foreach($with as $item) {
-			if(preg_match('#[^a-z]+#i', $item)) {
-				throw new BadRequestHttpException('Bad name for relation "' . $item . '"');
-			}
-			$serviceName = $this->domain->id . DOT . $item;
-			if(! ServiceHelper::has($serviceName)) {
-				throw new BadRequestHttpException('Service "' . $item . '" not found');
-			}
-			$profileEntity->{$item} = ServiceHelper::oneById($serviceName, $profileEntity->id);
+			$this->loadRelation($profileEntity, $item);
 		}
 		return $profileEntity;
+	}
+	
+	private function loadRelation(ProfileEntity $profileEntity, $with) {
+		$this->validateRelationName($with);
+		$serviceName = $this->domain->id . DOT . $with;
+		if(! ServiceHelper::has($serviceName)) {
+			throw new BadRequestHttpException('Service "' . $with . '" not found');
+		}
+		$profileEntity->{$with} = ServiceHelper::oneById($serviceName, $profileEntity->id);
+	}
+	
+	private function validateRelationName($name) {
+		if(preg_match('#[^a-z]+#i', $name)) {
+			throw new BadRequestHttpException('Bad name for relation "' . $name . '"');
+		}
 	}
 	
 }
