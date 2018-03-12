@@ -2,6 +2,7 @@
 
 namespace yii2module\profile\module\v1\controllers;
 
+use yii2module\account\domain\v2\entities\SecurityEntity;
 use yii2module\account\module\forms\ChangePasswordForm;
 use Yii;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
@@ -31,7 +32,9 @@ class SecurityController extends BaseController {
 				}
 			}
 		} else {
-			$model->email = Yii::$app->account->auth->identity->email;
+			/** @var SecurityEntity $securityEntity */
+			$securityEntity = Yii::$app->account->security->oneById(Yii::$app->user->id);
+			$model->email = $securityEntity->email;
 		}
 		return $model;
 	}
