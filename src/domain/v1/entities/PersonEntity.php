@@ -17,8 +17,6 @@ class PersonEntity extends BaseEntity {
 	protected $iin;
 	protected $birth_date;
 	protected $sex;
-	protected $avatar;
-	protected $avatar_url;
 
 	public function fieldType() {
 		return [
@@ -45,19 +43,6 @@ class PersonEntity extends BaseEntity {
 			[['sex'], 'boolean'],
 			['iin', IinValidator::class],
 		];
-	}
-	
-	public function getAvatarUrl() {
-		if(empty($this->avatar_url)) {
-			$repository = Yii::$app->profile->repositories->avatar;
-			if(empty($this->avatar)) {
-				$this->avatar_url = env('servers.static.domain') . $repository->defaultName;
-			} else {
-				$baseUrl = env('servers.static.domain') . param('static.path.avatar') . '/';
-				$this->avatar_url = $baseUrl . $this->avatar . '.' . $repository->format;
-			}
-		}
-		return $this->avatar_url;
 	}
 	
 }
