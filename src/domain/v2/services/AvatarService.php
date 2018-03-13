@@ -15,6 +15,8 @@ use yii2module\profile\domain\v2\repositories\ar\AvatarRepository;
  */
 class AvatarService extends BaseService implements AvatarInterface {
 	
+	public $defaultName = 'default';
+	
 	public function updateSelf($avatar) {
 		$id = Yii::$app->user->id;
 		$name = $this->domain->repositories->avatarUpload->save($avatar, $id);
