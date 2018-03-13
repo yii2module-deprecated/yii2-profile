@@ -1,6 +1,6 @@
 <?php
 
-namespace yii2module\profile\domain\v2\repositories\ar;
+namespace yii2module\profile\domain\v2\repositories\bridge;
 
 use Yii;
 use yii2lab\domain\data\Query;
