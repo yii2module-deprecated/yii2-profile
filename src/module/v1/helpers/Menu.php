@@ -11,13 +11,15 @@ class Menu implements MenuInterface {
 	
 	public function toArray() {
 		return [
-			'label' => ['profile/main','my_profile'],
-			'url' => 'profile/person',
-			'module' => 'profile',
-			'domain' => 'profile',
-			'access' => ['@'],
-			'active' => Yii::$app->controller->module->id == 'profile',
-			'visible' => ModuleHelper::has('profile', FRONTEND) && ServiceHelper::has('profile.person'),
+			[
+				'label' => ['profile/main','title'],
+				'url' => 'profile/person',
+				'module' => 'profile',
+				'domain' => 'profile',
+				'access' => ['@'],
+				'active' => Yii::$app->controller->module->id == 'profile',
+				'visible' => ModuleHelper::has('profile', FRONTEND) && ServiceHelper::has('profile.person'),
+			],
 		];
 	}
 	

@@ -6,6 +6,8 @@ use yii\widgets\ActiveForm;
 use yii\web\View;
 use yii2lab\geo\widgets\GeoSelector;
 
+$this->title = Yii::t('profile/address', 'title');
+
 ?>
 
 <?= $this->context->renderPartial('..\_navigation'); ?>

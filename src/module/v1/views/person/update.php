@@ -6,6 +6,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+
+$this->title = Yii::t('profile/person', 'title');
+
 ?>
 
 <?= $this->context->renderPartial('..\_navigation'); ?>

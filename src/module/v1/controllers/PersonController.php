@@ -12,7 +12,7 @@ class PersonController extends BaseController {
 
 	public function actionIndex() {
 		$model = new PersonForm();
-		$body = Yii::$app->request->post('ProfileForm');
+		$body = Yii::$app->request->post('PersonForm');
 		if($body) {
 			$model->setAttributes($body, false);
 			if($model->validate()) {
@@ -29,7 +29,7 @@ class PersonController extends BaseController {
 			$model->setAttributes($entity->toArray(), false);
 		}
 		
-		return $this->render('index', [
+		return $this->render('update', [
 			'modelMain' => $model,
 		]);
 	}

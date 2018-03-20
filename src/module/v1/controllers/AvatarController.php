@@ -26,7 +26,7 @@ class AvatarController extends BaseController {
 				}
 			}
 		}
-		return $this->render('index', [
+		return $this->render('update', [
 			'model' => $model,
 			'avatar' => Yii::$app->profile->avatar->getSelf(),
 		]);

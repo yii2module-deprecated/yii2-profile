@@ -26,7 +26,7 @@ class AddressController extends BaseController {
 			$entity = Yii::$app->profile->address->getSelf();
 			$model->setAttributes($entity->toArray(), false);
 		}
-		return $this->render('address', [
+		return $this->render('update', [
 			'model' => $model,
 		]);
 	}

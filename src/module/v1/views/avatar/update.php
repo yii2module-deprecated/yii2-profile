@@ -9,6 +9,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii2module\profile\widget\Avatar;
 
+$this->title = Yii::t('profile/avatar', 'title');
+
 ?>
 
 <?= $this->context->renderPartial('..\_navigation'); ?>
