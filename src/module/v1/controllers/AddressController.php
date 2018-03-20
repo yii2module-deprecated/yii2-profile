@@ -2,7 +2,7 @@
 
 namespace yii2module\profile\module\v1\controllers;
 
-use yii2module\profile\domain\v1\entities\AddressEntity;
+use yii2module\profile\domain\v2\entities\AddressEntity;
 use yii2module\profile\module\v1\forms\AddressForm;
 use Yii;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;

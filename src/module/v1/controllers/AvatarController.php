@@ -3,7 +3,7 @@
 namespace yii2module\profile\module\v1\controllers;
 
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
-use yii2module\profile\domain\v1\forms\AvatarForm;
+use yii2module\profile\domain\v2\forms\AvatarForm;
 use yii2lab\notify\domain\widgets\Alert;
 use Yii;
 
