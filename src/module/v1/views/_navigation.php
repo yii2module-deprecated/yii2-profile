@@ -8,7 +8,7 @@ echo Nav::widget([
 		'id' => 'profile_navigation',
 		'class' => 'nav nav-tabs',
 	],
-	'items' => MenuHelper::gen('yii2module\profile\module\v1\helpers\Menu'),
+	'items' => MenuHelper::gen('yii2module\profile\module\v1\helpers\SettingsMenu'),
 ]);
 
 ?>
