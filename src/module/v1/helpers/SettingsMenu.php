@@ -2,10 +2,10 @@
 
 namespace yii2module\profile\module\v1\helpers;
 
-use Yii;
+use yii2lab\extension\menu\base\BaseMenu;
 use yii2lab\extension\menu\interfaces\MenuInterface;
 
-class SettingsMenu implements MenuInterface {
+class SettingsMenu extends BaseMenu implements MenuInterface {
 	
 	public function toArray() {
 		$items = [
@@ -38,16 +38,4 @@ class SettingsMenu implements MenuInterface {
 		return $items;
 	}
 	
-	private function filter($items) {
-		foreach($items as &$item) {
-			$item['active'] = trim(Yii::$app->request->url, SL) == $item['url'];
-			/*if(!empty($item['icon'])) {
-				$item['label'] = $item['icon'] . SPC . $item['label'];
-				unset($item['icon']);
-				$item['encode'] = false;
-			}*/
-		}
-		return $items;
-	}
-
 }
