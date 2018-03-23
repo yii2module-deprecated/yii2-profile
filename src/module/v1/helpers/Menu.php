@@ -13,7 +13,7 @@ class Menu implements MenuInterface {
 		return [
 			[
 				'label' => ['profile/main','title'],
-				'url' => 'profile/person',
+				'url' => 'profile',
 				'module' => 'profile',
 				'domain' => 'profile',
 				'access' => ['@'],
