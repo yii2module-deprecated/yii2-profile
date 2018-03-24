@@ -6,6 +6,7 @@ use yii2lab\domain\interfaces\services\CrudInterface;
 
 interface AvatarInterface extends CrudInterface {
 	
+	public function getSelf();
 	public function updateSelf($avatar);
 	public function deleteSelf();
 

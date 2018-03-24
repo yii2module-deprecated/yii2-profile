@@ -27,12 +27,6 @@ class SettingsMenu extends BaseMenu implements MenuInterface {
 				'label' => ['profile/address', 'title'],
 				'visible' => true,
 			],
-			/*[
-				'url' => 'profile/security',
-				'icon' => 'lock',
-				'label' => ['profile/security', 'title'],
-				'visible' => true,
-			],*/
 		];
 		$items = $this->filter($items);
 		return $items;

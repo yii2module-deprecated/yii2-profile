@@ -7,14 +7,18 @@ use yii2lab\domain\rest\Controller;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use Yii;
 use yii2module\profile\domain\v2\forms\AvatarForm;
+use yii2module\profile\domain\v2\interfaces\services\AvatarInterface;
 
+/**
+ * Class AvatarController
+ *
+ * @package yii2module\profile\api\v2\controllers
+ *
+ * @property-read AvatarInterface $service
+ */
 class AvatarController extends Controller {
 	
 	public $serviceName = 'profile.avatar';
-	
-	public function getSelf() {
-		return $this->repository->getSelf();
-	}
 	
 	/**
 	 * @inheritdoc
