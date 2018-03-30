@@ -6,7 +6,7 @@ use yii2module\profile\domain\v2\entities\AddressEntity;
 use yii2module\profile\module\v1\forms\AddressForm;
 use Yii;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
-use yii2lab\notify\domain\widgets\Alert;
+use yii2lab\navigation\domain\widgets\Alert;
 
 class AddressController extends BaseController {
 
