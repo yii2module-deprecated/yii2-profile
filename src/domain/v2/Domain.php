@@ -27,7 +27,7 @@ class Domain extends \yii2lab\domain\Domain {
 				'person' => Driver::slave(),
 				'address' => Driver::slave(),
 				'avatarUpload' => [
-					'driver' => Driver::UPLOAD,
+					'driver' => Driver::FLY,
 					//'quality' => 90,
 					'format' => 'png',
 					'size' => 256,

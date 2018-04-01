@@ -3,13 +3,15 @@
 namespace yii2module\profile\domain\v2\services;
 
 use Yii;
+use yii\web\UploadedFile;
+use yii2module\profile\domain\v2\entities\AvatarEntity;
 use yii2module\profile\domain\v2\interfaces\services\AvatarInterface;
 use yii2module\profile\domain\v2\repositories\ar\AvatarRepository;
 
 /**
  * Class AvatarService
  *
- * @packageyii2module\profile\domain\v2\services
+ * @package yii2module\profile\domain\v2\services
  *
  * @property AvatarRepository $repository
  */
@@ -18,20 +20,32 @@ class AvatarService extends BaseService implements AvatarInterface {
 	public $defaultName = 'default';
 	
 	public function updateSelf($avatar) {
-		$id = Yii::$app->user->id;
-		$name = $this->domain->repositories->avatarUpload->save($avatar, $id);
-		$this->changeAvatarInProfile($name);
+		$userId = Yii::$app->user->id;
+		$this->uploadByUserId($userId, $avatar);
 	}
 	
 	public function deleteSelf() {
-		$id = Yii::$app->user->id;
-		$this->domain->repositories->avatarUpload->delete($id);
-		$this->changeAvatarInProfile(null);
+		$userId = Yii::$app->user->id;
+		$this->deleteImagesByUserId($userId);
+		$this->changeAvatarInProfile($userId, null);
 	}
 	
-	private function changeAvatarInProfile($name) {
-		$id = Yii::$app->user->id;
-		$entity = $this->repository->oneById($id);
+	private function uploadByUserId($userId, UploadedFile $avatar) {
+		$name = $this->domain->repositories->avatarUpload->save($avatar->tempName, $userId);
+		if($name) {
+			$this->deleteImagesByUserId($userId);
+			$this->changeAvatarInProfile($userId, $name);
+		}
+	}
+	
+	private function deleteImagesByUserId($userId) {
+		/** @var AvatarEntity $entity */
+		$entity = $this->repository->oneById($userId);
+		$this->domain->repositories->avatarUpload->delete($entity->name);
+	}
+	
+	private function changeAvatarInProfile($userId, $name) {
+		$entity = $this->repository->oneById($userId);
 		$entity->name = $name;
 		$this->repository->update($entity);
 	}
