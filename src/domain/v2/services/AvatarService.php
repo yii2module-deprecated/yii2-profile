@@ -21,6 +21,7 @@ class AvatarService extends BaseService implements AvatarInterface {
 	
 	public function updateSelf($avatar) {
 		$userId = Yii::$app->user->id;
+		$this->deleteSelf();
 		$this->uploadByUserId($userId, $avatar);
 	}
 	
@@ -31,7 +32,7 @@ class AvatarService extends BaseService implements AvatarInterface {
 	}
 	
 	private function uploadByUserId($userId, UploadedFile $avatar) {
-		$name = $this->domain->repositories->avatarUpload->save($avatar->tempName, $userId);
+		$name = $this->domain->repositories->avatarUpload->save($avatar, $userId);
 		if($name) {
 			$this->deleteImagesByUserId($userId);
 			$this->changeAvatarInProfile($userId, $name);
