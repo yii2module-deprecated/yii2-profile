@@ -2,8 +2,10 @@
 
 namespace yii2module\profile\domain\v2\repositories\fly;
 
+use creocoder\flysystem\Filesystem;
 use Yii;
 use yii2lab\domain\repositories\BaseRepository;
+use yii2lab\helpers\TempHelper;
 use yii2lab\helpers\yii\FileHelper;
 use yii2module\profile\domain\v2\interfaces\repositories\AvatarInterface;
 use yii\imagine\Image;
@@ -15,7 +17,13 @@ class AvatarUploadRepository extends BaseRepository implements AvatarInterface {
 	public $format = 'png';
 	public $pathName = 'images/avatars';
 	
+	/**
+	 * @var Filesystem
+	 */
+	private $storeInstance;
+	
 	public function save($tempName, $userId) {
+		$name = $this->getNameOfUploaded($userId, $tempName);
 		$originalFile = $this->getFileNameOfUploaded($userId, $tempName, 'original');
 		$thumbFile = $this->getFileNameOfUploaded($userId, $tempName);
 		$staticFs = $this->storeInstance();
@@ -23,9 +31,12 @@ class AvatarUploadRepository extends BaseRepository implements AvatarInterface {
 			$staticFs->delete($originalFile);
 		}
 		$staticFs->write($originalFile, file_get_contents($tempName));
-		$thumbTempName = $this->saveThumb($originalFile);
+		$tempFile = TempHelper::fullName($this->getBaseFileName($name));
+		FileHelper::copy($tempName,  $tempFile);
+		$thumbTempName = $this->saveThumb($tempFile);
 		$staticFs->write($thumbFile, file_get_contents($thumbTempName));
-		return $this->getNameOfUploaded($userId, $tempName);
+		TempHelper::clearAll();
+		return $name;
 	}
 	
 	public function delete($fileName) {
@@ -41,19 +52,22 @@ class AvatarUploadRepository extends BaseRepository implements AvatarInterface {
 	}
 	
 	private function saveThumb($originalFile) {
-		$size = $this->size;
-		$fullThumbPath = Yii::getAlias('@runtime/upload_temp');
-		FileHelper::createDirectory($fullThumbPath);
-		$fullThumbFileName = $fullThumbPath . DS . basename($originalFile);
-		Image::thumbnail($originalFile, $size, $size)
+		$fullThumbFileName = TempHelper::fullName('thumb' . DS . basename($originalFile));
+		Image::thumbnail($originalFile, $this->size, $this->size)
 			->save($fullThumbFileName, ['quality' => $this->quality]);
-		return $fullThumbFileName;
+		return FileHelper::normalizePath($fullThumbFileName);
 	}
 	
 	private function storeInstance() {
-		/** @var \League\Flysystem\Adapter\Ftp $staticFs */
-		$staticFs = Yii::$app->ftpFs;
-		return $staticFs;
+		if($this->storeInstance instanceof Filesystem) {
+			return $this->storeInstance;
+		}
+		$definition = env('servers.static.connection');
+		$driver = env('servers.static.driver');
+		$driver = ucfirst($driver);
+		$definition['class'] = 'creocoder\flysystem\\' . $driver . 'Filesystem';
+		$this->storeInstance = Yii::createObject($definition);
+		return $this->storeInstance;
 	}
 	
 	private function getFileName($fileName, $subDirectory = null) {
@@ -64,13 +78,13 @@ class AvatarUploadRepository extends BaseRepository implements AvatarInterface {
 	
 	private function getFileNameOfUploaded($userId, $fileName, $subDirectory = null) {
 		$basePath = $this->getFilePath($subDirectory);
-		$name = $userId . BL . $this->getHash($fileName);
+		$name = $userId . BL . $this->getHashFromFileName($fileName);
 		$baseFileName = $this->getBaseFileName($name);
 		return $basePath . SL . $baseFileName;
 	}
 	
 	private function getNameOfUploaded($userId, $fileName) {
-		return $userId . BL . $this->getHash($fileName);
+		return $userId . BL . $this->getHashFromFileName($fileName);
 	}
 	
 	private function getBaseFileName($fileName) {
@@ -86,7 +100,7 @@ class AvatarUploadRepository extends BaseRepository implements AvatarInterface {
 		return $basePath;
 	}
 	
-	private function getHash($fileName) {
+	private function getHashFromFileName($fileName) {
 		return hash_file('crc32b', $fileName);
 	}
 }
