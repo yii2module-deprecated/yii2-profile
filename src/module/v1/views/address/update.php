@@ -22,11 +22,11 @@ $this->title = Yii::t('profile/address', 'title');
 	        'default' => [
 	            'country_id' => 1894,
             ],
-            'url' => [
+            /*'url' => [
                 'country' => ApiVersionEnum::VERSION_DEFAULT . '/country',
                 'region' => ApiVersionEnum::VERSION_DEFAULT . '/region',
                 'city' => ApiVersionEnum::VERSION_DEFAULT . '/city',
-            ],
+            ],*/
         ]) ?>
 
         <?= $form->field($model, 'street')->textInput(['id'=>'street','placeholder'=>$model->street]) ?>
