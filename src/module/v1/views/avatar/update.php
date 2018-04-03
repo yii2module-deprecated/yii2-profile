@@ -13,7 +13,7 @@ $this->title = Yii::t('profile/avatar', 'title');
 
 ?>
 
-<?= $this->context->renderPartial('..\_navigation'); ?>
+<?= $this->context->renderPartial('../_navigation'); ?>
 
 <div class="row">
  

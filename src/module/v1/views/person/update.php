@@ -11,7 +11,7 @@ $this->title = Yii::t('profile/person', 'title');
 
 ?>
 
-<?= $this->context->renderPartial('..\_navigation'); ?>
+<?= $this->context->renderPartial('../_navigation'); ?>
 
 <div class="row">
  
