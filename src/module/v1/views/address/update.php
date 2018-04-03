@@ -10,7 +10,7 @@ $this->title = Yii::t('profile/address', 'title');
 
 ?>
 
-<?= $this->context->renderPartial('..\_navigation'); ?>
+<?= $this->context->renderPartial('../_navigation'); ?>
 
 <div class="row">
     <div class="col-lg-3">
