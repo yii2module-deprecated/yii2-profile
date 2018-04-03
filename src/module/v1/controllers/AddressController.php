@@ -16,14 +16,14 @@ class AddressController extends BaseController {
 			$body = Yii::$app->request->post();
 			$model->setAttributes($body['AddressForm'], false);
 			try {
-				Yii::$app->profile->address->updateSelf($model);
-				Yii::$app->navigation->alert->create(['profile/address', 'saved_success'], Alert::TYPE_SUCCESS);
+				Yii::$domain->profile->address->updateSelf($model);
+				Yii::$domain->navigation->alert->create(['profile/address', 'saved_success'], Alert::TYPE_SUCCESS);
 			} catch(UnprocessableEntityHttpException $e) {
 				$model->addErrorsFromException($e);
 			}
 		} else {
 			/** @var AddressEntity $entity */
-			$entity = Yii::$app->profile->address->getSelf();
+			$entity = Yii::$domain->profile->address->getSelf();
 			$model->setAttributes($entity->toArray(), false);
 		}
 		return $this->render('update', [

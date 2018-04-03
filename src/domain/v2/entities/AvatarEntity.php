@@ -20,10 +20,10 @@ class AvatarEntity extends BaseEntity {
 	
 	public function getUrl() {
 		if(empty($this->name)) {
-			return env('servers.static.domain') . Yii::$app->profile->avatar->defaultName;
+			return env('servers.static.domain') . Yii::$domain->profile->avatar->defaultName;
 		} else {
 			$baseUrl = env('servers.static.domain') . param('static.path.avatar') . '/';
-			return $baseUrl . $this->name . '.' . Yii::$app->profile->repositories->avatarUpload->format;
+			return $baseUrl . $this->name . '.' . Yii::$domain->profile->repositories->avatarUpload->format;
 		}
 	}
 	

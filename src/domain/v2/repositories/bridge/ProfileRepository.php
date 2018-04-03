@@ -45,7 +45,7 @@ class ProfileRepository extends BaseRepository {
 	public function one(Query $query = null) {
 		$query = Query::forge($query);
 		$id = $query->getParam('where.id');
-		$loginEntity = Yii::$app->account->login->oneById($id);
+		$loginEntity = Yii::$domain->account->login->oneById($id);
 		$entity = $this->forgeEntity([
 			'id' => $loginEntity->id,
 		]);

@@ -27,8 +27,8 @@ class Module extends YiiModule
 		$controllerId = Yii::$app->controller->id;
 		$moduleId = $this->id;
 		//Yii::$app->view->title = Yii::t($moduleId . SL . $controllerId, 'title');
-		Yii::$app->navigation->breadcrumbs->create([$moduleId . SL . 'main', 'title']);
-		Yii::$app->navigation->breadcrumbs->create([$moduleId . SL . $controllerId, 'title']);
+		Yii::$domain->navigation->breadcrumbs->create([$moduleId . SL . 'main', 'title']);
+		Yii::$domain->navigation->breadcrumbs->create([$moduleId . SL . $controllerId, 'title']);
 		return parent::beforeAction($action);
 	}
 	

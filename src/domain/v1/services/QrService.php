@@ -13,7 +13,7 @@ class QrService extends ActiveBaseService {
 		$qrData['account'] = $identity->login;
 		$qrData['action'] = 'convertation-to-account';
 		$url = $this->genUrl('convertation/to-account', $qrData);
-		$entity = Yii::$app->qr->generator->generate($url);
+		$entity = Yii::$domain->qr->generator->generate($url);
 		return $entity;
 	}
 	
