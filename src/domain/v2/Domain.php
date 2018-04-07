@@ -40,7 +40,7 @@ class Domain extends \yii2lab\domain\Domain {
 				'person',
 				'address',
 				'avatar' => [
-					'defaultName' => 'images/icon/avatar.png',
+					'defaultName' => 'images/image/no_avatar.png',
 				],
 				'iin',
 			],
