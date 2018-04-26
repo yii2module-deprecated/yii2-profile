@@ -7,7 +7,7 @@ use yii2lab\domain\data\Query;
 use yii2lab\domain\enums\RelationEnum;
 use yii2lab\domain\helpers\repository\RelationHelper;
 use yii2lab\domain\repositories\BaseRepository;
-use yii2lab\domain\traits\ActiveRepositoryTrait;
+use yii2lab\extension\activeRecord\traits\ActiveRepositoryTrait;
 
 class ProfileRepository extends BaseRepository {
 	
