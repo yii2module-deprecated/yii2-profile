@@ -10,8 +10,8 @@ get:
                     example: !include example/one-response-body.json
 put:
     securedBy: [Auth]
-    description: "Изменитьперсональные данные "
-    is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/put.raml
+    description: "Изменитьперсональные данные"
+    is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/update.raml
     body:
         application/json:
             example: !include example/update-request-body.json

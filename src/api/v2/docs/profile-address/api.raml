@@ -11,7 +11,7 @@ get:
 put:
     securedBy: [Auth]
     description: "Изменить адреса"
-    is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/put.raml
+    is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/update.raml
     body:
         application/json:
             example: !include example/update-request-body.json
