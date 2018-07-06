@@ -17,6 +17,10 @@ class AddressController extends Controller
 	{
 		return [
 			'authenticator' => Behavior::apiAuth(),
+			'verb' => Behavior::verb([
+				'view' => ['GET'],
+				'update' => ['PUT'],
+			]),
 		];
 	}
 

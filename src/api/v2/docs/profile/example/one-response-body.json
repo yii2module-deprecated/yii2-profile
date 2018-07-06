@@ -1,0 +1,27 @@
+{
+	"id": 1,
+	"person": {
+		"id": 1,
+		"first_name": "fisrtname4",
+		"last_name": "lastname1",
+		"iin": "",
+		"birth_date": "2018-03-20T00:00:00Z",
+		"sex": 0
+	},
+	"address": {
+		"id": 1,
+		"country_id": 34,
+		"region_id": 1974,
+		"city_id": 1985,
+		"district": null,
+		"street": "Название улицы",
+		"home": "123\/б",
+		"apartment": 12,
+		"zip_code": null
+	},
+	"avatar": {
+		"id": 1,
+		"name": "1_49a5407c",
+		"url": "http:\/\/extended.tpl\/images\/avatars\/1_49a5407c.png"
+	}
+}

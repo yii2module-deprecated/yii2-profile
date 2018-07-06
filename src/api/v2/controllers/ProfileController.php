@@ -17,6 +17,9 @@ class ProfileController extends Controller
 	{
 		return [
 			'authenticator' => Behavior::apiAuth(),
+			'verb' => Behavior::verb([
+				'view' => ['GET'],
+			]),
 		];
 	}
 

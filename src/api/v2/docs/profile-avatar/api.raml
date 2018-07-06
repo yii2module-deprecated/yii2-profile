@@ -1,0 +1,25 @@
+description: "Аватар профиля"
+get:
+    securedBy: [Auth]
+    description: "Получить аватар"
+    is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/one.raml
+    responses:
+        200:
+            body:
+                application/json:
+                    example: !include example/one-response-body.json
+post:
+    securedBy: [Auth]
+    description: "Загрузить аватар"
+    is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/post.raml
+    body:
+        multipart/form-data:
+            properties:
+                imageFile:
+                    description: The file to be uploaded
+                    required: true
+                    type: file
+delete:
+    securedBy: [Auth]
+    description: "Удалить аватар"
+    is: !include /../../../vendor/yii2lab/yii2-rest/src/domain/docs/is/delete.raml

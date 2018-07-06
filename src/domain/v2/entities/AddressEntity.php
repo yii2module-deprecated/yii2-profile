@@ -15,6 +15,9 @@ class AddressEntity extends BaseEntity {
 	protected $home;
 	protected $apartment;
 	protected $zip_code;
+	protected $city;
+	protected $region;
+	protected $country;
 
 	/**
 	 * @inheritdoc

@@ -1,0 +1,10 @@
+{
+	"country_id": 1894,
+	"region_id": 1994,
+	"city_id": 2000,
+	"district": "Название района",
+	"street": "Название улицы",
+	"home": "123\/б",
+	"apartment": 12,
+	"zip_code": null
+}

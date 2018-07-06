@@ -1,0 +1,31 @@
+{
+	"id": 381069,
+	"country_id": 1894,
+	"region_id": 1994,
+	"city_id": 2000,
+	"district": "Название района",
+	"street": "Название улицы",
+	"home": "123\/б",
+	"apartment": 12,
+	"zip_code": null,
+	"city": {
+		"id": 2000,
+		"country_id": 1894,
+		"region_id": 1994,
+		"name": "Караганда",
+		"country": null,
+		"region": null
+	},
+	"region": {
+		"id": 1994,
+		"country_id": 1894,
+		"name": "Карагандинская обл.",
+		"country": null,
+		"cities": null
+	},
+	"country": {
+		"id": 1894,
+		"name": "Казахстан",
+		"currency": null
+	}
+}

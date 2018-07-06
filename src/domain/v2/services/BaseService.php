@@ -18,6 +18,7 @@ use yii2module\profile\domain\v2\repositories\ar\AvatarRepository;
 class BaseService extends ActiveBaseService {
 	
 	public function oneById($id, Query $query = null) {
+		//prr($query->toArray(),1,1);
 		try {
 			$entity = parent::oneById($id, $query);
 		} catch(NotFoundHttpException $e) {
@@ -27,9 +28,11 @@ class BaseService extends ActiveBaseService {
 		return $entity;
 	}
 	
-	public function getSelf() {
+	public function getSelf(Query $query = null) {
+		//prr($query->toArray(),1,1);
 		$id = Yii::$app->user->identity->id;
-		return $this->oneById($id);
+		return $this->oneById($id, $query);
+		//prr($this->oneById($id, $query),1,1);
 	}
 	
 	public function updateSelf($body) {

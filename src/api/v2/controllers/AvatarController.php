@@ -26,6 +26,11 @@ class AvatarController extends Controller {
 	public function behaviors() {
 		return [
 			'authenticator' => Behavior::apiAuth(),
+			'verb' => Behavior::verb([
+				'view' => ['GET'],
+				'update' => ['POST'],
+				'delete' => ['DELETE'],
+			]),
 		];
 	}
 	
