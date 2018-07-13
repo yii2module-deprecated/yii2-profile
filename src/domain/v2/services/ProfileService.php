@@ -18,6 +18,7 @@ class ProfileService extends ActiveBaseService {
 	}
 	
 	public function oneById($id, Query $query = null) {
+		$query = Query::forge($query);
 		$with = $query->getParam('with');
 		$profileEntity = new ProfileEntity();
 		$profileEntity->id = $id;
