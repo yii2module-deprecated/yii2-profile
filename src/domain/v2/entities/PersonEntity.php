@@ -8,6 +8,7 @@ use yii2lab\misc\enums\TimeEnum;
 use yii2lab\validator\IinValidator;
 use Yii;
 use yii\validators\DateValidator;
+use yii2module\account\domain\v2\helpers\LoginHelper;
 
 /**
  * Class PersonEntity
@@ -15,11 +16,12 @@ use yii\validators\DateValidator;
  * @package yii2module\profile\domain\v2\entities
  *
  * @property $id
- * @property$first_name
- * @property$last_name
- * @property$iin
- * @property$birth_date
- * @property$sex
+ * @property $first_name
+ * @property $last_name
+ * @property $iin
+ * @property $birth_date
+ * @property $sex
+ * @property $title
  */
 class PersonEntity extends BaseEntity {
 	
@@ -29,7 +31,7 @@ class PersonEntity extends BaseEntity {
 	protected $iin;
 	protected $birth_date;
 	protected $sex;
-
+	
 	public function fieldType() {
 		return [
 			'iin' => 'string',
@@ -37,6 +39,18 @@ class PersonEntity extends BaseEntity {
 		];
 	}
 
+	public function getTitle() {
+		$title = ucfirst($this->first_name) . SPC . ucfirst($this->last_name);
+		$title = trim($title);
+		if(!$title) {
+			$title = Yii::$domain->account->auth->identity->login;
+			if(LoginHelper::validate($title)) {
+				$title = LoginHelper::format($title);
+			}
+		}
+		return $title;
+	}
+	
 	/**
 	 * @inheritdoc
 	 */
@@ -45,6 +59,7 @@ class PersonEntity extends BaseEntity {
 		//$maxBirthDate = time() - TimeEnum::SECOND_PER_DAY;
 		return [
 			[['first_name', 'last_name', 'iin', 'birth_date'], 'trim'],
+			[['first_name', 'last_name'], 'match', 'pattern'=>'/^[a-zа-я]+$/iu', 'message' => Yii::t('profile/person', 'invalid_format_name')],
 			/*[
 				'birth_date',
 				DateValidator::class,

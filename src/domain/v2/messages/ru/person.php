@@ -21,4 +21,6 @@ return [
 	'fake_birth_date' => 'Это не Ваше настоящяя дата рождения',
 	
 	'saved_success' => 'Данные вашей персоны сохранены',
+	
+	'invalid_format_name' => '{attribute} должен быть словом',
 ];

@@ -31,7 +31,7 @@ $icon = Html::fa('pencil', ['class' => 'text-primary']);
                 </div>
                 <div class="media-body">
                     <h2>
-						<?= NBSP . $profileEntity->person->first_name . SPC . $profileEntity->person->last_name ?>
+						<?= NBSP . $profileEntity->person->title ?>
                     </h2>
                 </div>
             </div>
