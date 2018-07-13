@@ -9,6 +9,18 @@ use yii2lab\validator\IinValidator;
 use Yii;
 use yii\validators\DateValidator;
 
+/**
+ * Class PersonEntity
+ *
+ * @package yii2module\profile\domain\v2\entities
+ *
+ * @property $id
+ * @property$first_name
+ * @property$last_name
+ * @property$iin
+ * @property$birth_date
+ * @property$sex
+ */
 class PersonEntity extends BaseEntity {
 	
 	protected $id;
