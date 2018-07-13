@@ -8,9 +8,13 @@ use Yii;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use yii2lab\navigation\domain\widgets\Alert;
 
+/**
+ * @property \yii2module\profile\module\v1\Module $module
+ */
 class AddressController extends BaseController {
 
     public function actionIndex() {
+	    Yii::$domain->navigation->breadcrumbs->create([$this->module->moduleLangId(), 'title']);
 		$model = new AddressForm();
 		if(Yii::$app->request->post()) {
 			$body = Yii::$app->request->post();

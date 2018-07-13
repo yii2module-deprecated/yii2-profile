@@ -24,12 +24,15 @@ class Module extends YiiModule
 	}
 	
 	public function beforeAction($action) {
-		$controllerId = Yii::$app->controller->id;
-		$moduleId = $this->id;
+		
 		//Yii::$app->view->title = Yii::t($moduleId . SL . $controllerId, 'title');
-		Yii::$domain->navigation->breadcrumbs->create([$moduleId . SL . 'main', 'title']);
-		Yii::$domain->navigation->breadcrumbs->create([$moduleId . SL . $controllerId, 'title']);
+		Yii::$domain->navigation->breadcrumbs->create([$this->id . SL . 'main', 'title']);
+		//Yii::$domain->navigation->breadcrumbs->create([$this->moduleLangId(), 'title']);
 		return parent::beforeAction($action);
+	}
+	
+	public function moduleLangId() {
+		return $this->id . SL . Yii::$app->controller->id;
 	}
 	
 }

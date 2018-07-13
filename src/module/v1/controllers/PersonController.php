@@ -8,9 +8,13 @@ use yii2module\profile\module\v1\forms\PersonForm;
 use yii2lab\navigation\domain\widgets\Alert;
 use Yii;
 
+/**
+ * @property \yii2module\profile\module\v1\Module $module
+ */
 class PersonController extends BaseController {
 
 	public function actionIndex() {
+		Yii::$domain->navigation->breadcrumbs->create([$this->module->moduleLangId(), 'title']);
 		$model = new PersonForm();
 		$body = Yii::$app->request->post('PersonForm');
 		if($body) {

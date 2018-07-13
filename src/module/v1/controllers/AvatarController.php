@@ -7,9 +7,13 @@ use yii2module\profile\domain\v2\forms\AvatarForm;
 use yii2lab\navigation\domain\widgets\Alert;
 use Yii;
 
+/**
+ * @property \yii2module\profile\module\v1\Module $module
+ */
 class AvatarController extends BaseController {
 
 	public function actionIndex() {
+		Yii::$domain->navigation->breadcrumbs->create([$this->module->moduleLangId(), 'title']);
 		$model = new AvatarForm();
 		if(Yii::$app->request->isPost) {
 			if(Yii::$app->request->post('submit')==='delete') {
