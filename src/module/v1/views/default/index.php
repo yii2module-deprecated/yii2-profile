@@ -37,7 +37,12 @@ $icon = Html::fa('pencil', ['class' => 'text-primary']);
             </div>
         </ul>
 
-        <h3>Account</h3>
+        <h3>
+            <?= Yii::t('account/login',  'title') ?>
+            <?= NBSP . Html::a($icon, ['/user/security/email'], [
+	            'title' => Yii::t('action', 'update'),
+            ]) ?>
+        </h3>
 		
 		<?= DetailView::widget([
 			'model' => Yii::$domain->account->auth->identity,
@@ -58,7 +63,7 @@ $icon = Html::fa('pencil', ['class' => 'text-primary']);
 		]) ?>
 
         <h3>
-            Person
+	        <?= Yii::t('profile/person',  'title') ?>
 			<?= NBSP . Html::a($icon, ['/profile/person'], [
 				'title' => Yii::t('action', 'update'),
 			]) ?>
@@ -78,7 +83,7 @@ $icon = Html::fa('pencil', ['class' => 'text-primary']);
         </div>
 
         <h3>
-            Address
+            <?= Yii::t('profile/address',  'title') ?>
 			<?= NBSP . Html::a($icon, ['/profile/address'], [
 				'title' => Yii::t('action', 'update'),
 			]) ?>
