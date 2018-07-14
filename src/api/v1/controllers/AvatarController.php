@@ -3,14 +3,14 @@
 namespace yii2module\profile\api\v1\controllers;
 
 use yii2lab\helpers\Behavior;
-use yii2lab\domain\rest\Controller;
+use yii2lab\rest\domain\rest\Controller;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use Yii;
 use yii2module\profile\domain\v1\forms\AvatarForm;
 
 class AvatarController extends Controller {
 	
-	public $serviceName = 'profile.avatar';
+	public $service = 'profile.avatar';
 	
 	public function getSelf() {
 		return $this->repository->getSelf();

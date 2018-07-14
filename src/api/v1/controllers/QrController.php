@@ -2,13 +2,13 @@
 
 namespace yii2module\profile\api\v1\controllers;
 
-use yii2lab\domain\rest\Controller;
+use yii2lab\rest\domain\rest\Controller;
 use yii2lab\helpers\Behavior;
 
 class QrController extends Controller
 {
 
-	public $serviceName = 'profile.qr';
+	public $service = 'profile.qr';
 
 	/**
 	 * @inheritdoc

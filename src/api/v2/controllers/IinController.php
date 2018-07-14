@@ -2,12 +2,12 @@
 
 namespace yii2module\profile\api\v2\controllers;
 
-use yii2lab\domain\rest\ActiveController as Controller;
+use yii2lab\rest\domain\rest\ActiveController as Controller;
 
 class IinController extends Controller
 {
 
-	public $serviceName = 'profile.iin';
+	public $service = 'profile.iin';
 
 	/**
 	 * @inheritdoc

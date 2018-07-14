@@ -2,14 +2,14 @@
 
 namespace yii2module\profile\api\v1\controllers;
 
-use yii2lab\domain\rest\ActiveControllerWithQuery as Controller;
+use yii2lab\rest\domain\rest\ActiveControllerWithQuery as Controller;
 use Yii;
 use yii2lab\helpers\Behavior;
 
 class ActiveController extends Controller
 {
 	
-	public $serviceName = 'profile.active';
+	public $service = 'profile.active';
 	
 	/**
 	 * @inheritdoc

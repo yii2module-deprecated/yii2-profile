@@ -2,13 +2,13 @@
 
 namespace yii2module\profile\api\v1\controllers;
 
-use yii2lab\domain\rest\Controller;
+use yii2lab\rest\domain\rest\Controller;
 use yii2lab\helpers\Behavior;
 
 class AddressController extends Controller
 {
 
-	public $serviceName = 'profile.address';
+	public $service = 'profile.address';
 
 	/**
 	 * @inheritdoc

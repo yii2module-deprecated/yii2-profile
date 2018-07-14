@@ -3,7 +3,7 @@
 namespace yii2module\profile\api\v2\controllers;
 
 use yii2lab\helpers\Behavior;
-use yii2lab\domain\rest\Controller;
+use yii2lab\rest\domain\rest\Controller;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use Yii;
 use yii2module\profile\domain\v2\forms\AvatarForm;
@@ -18,7 +18,7 @@ use yii2module\profile\domain\v2\interfaces\services\AvatarInterface;
  */
 class AvatarController extends Controller {
 	
-	public $serviceName = 'profile.avatar';
+	public $service = 'profile.avatar';
 	
 	/**
 	 * @inheritdoc

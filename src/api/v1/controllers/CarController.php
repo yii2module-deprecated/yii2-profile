@@ -2,13 +2,13 @@
 
 namespace yii2module\profile\api\v1\controllers;
 
-use yii2lab\domain\rest\Controller;
+use yii2lab\rest\domain\rest\Controller;
 use yii2lab\helpers\Behavior;
 
 class CarController extends Controller
 {
 
-	public $serviceName = 'profile.car';
+	public $service = 'profile.car';
 
 	/**
 	 * @inheritdoc
