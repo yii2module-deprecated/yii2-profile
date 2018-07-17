@@ -59,7 +59,7 @@ class PersonEntity extends BaseEntity {
 		//$maxBirthDate = time() - TimeEnum::SECOND_PER_DAY;
 		return [
 			[['first_name', 'last_name', 'iin', 'birth_date'], 'trim'],
-			[['first_name', 'last_name'], 'match', 'pattern'=>'/^[a-zа-я]+$/iu', 'message' => Yii::t('profile/person', 'invalid_format_name')],
+			[['first_name', 'last_name'], 'match', 'pattern'=>'/^[a-zа-яё]+$/iu', 'message' => Yii::t('profile/person', 'invalid_format_name')],
 			/*[
 				'birth_date',
 				DateValidator::class,
