@@ -26,7 +26,7 @@ class Module extends YiiModule
 	public function beforeAction($action) {
 		
 		//Yii::$app->view->title = Yii::t($moduleId . SL . $controllerId, 'title');
-		Yii::$domain->navigation->breadcrumbs->create([$this->id . SL . 'main', 'title']);
+		Yii::$domain->navigation->breadcrumbs->create([$this->id . SL . 'main', 'title'], [SL . $this->id]);
 		//Yii::$domain->navigation->breadcrumbs->create([$this->moduleLangId(), 'title']);
 		return parent::beforeAction($action);
 	}
