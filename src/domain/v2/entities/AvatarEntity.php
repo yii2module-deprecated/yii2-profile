@@ -3,7 +3,9 @@
 namespace yii2module\profile\domain\v2\entities;
 
 use Yii;
+use yii2lab\app\domain\helpers\EnvService;
 use yii2lab\domain\BaseEntity;
+use yii2module\profile\domain\v2\enums\SummaryEnum;
 
 /**
  * Class AvatarEntity
@@ -20,10 +22,11 @@ class AvatarEntity extends BaseEntity {
 	
 	public function getUrl() {
 		if(empty($this->name)) {
-			return env('servers.static.domain') . Yii::$domain->profile->avatar->defaultName;
+			return EnvService::getStaticUrl(Yii::$domain->profile->avatar->defaultName);
 		} else {
-			$baseUrl = env('servers.static.domain') . param('static.path.avatar') . '/';
-			return $baseUrl . $this->name . '.' . Yii::$domain->profile->repositories->avatarUpload->format;
+			$fileName = $this->name . DOT . Yii::$domain->profile->repositories->avatarUpload->format;
+			$baseUrl = Yii::$domain->summary->summary->getStaticUrl(SummaryEnum::AVATAR_URL);
+			return $baseUrl . SL . $fileName;
 		}
 	}
 	
