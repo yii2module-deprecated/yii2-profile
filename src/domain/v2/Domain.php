@@ -6,14 +6,10 @@ use yii2lab\domain\enums\Driver;
 
 /**
  * Class Domain
- *
+ * 
  * @package yii2module\account\domain\v2
- *
- * @property \yii2module\profile\domain\v2\services\ProfileService $profile
- * @property \yii2module\profile\domain\v2\services\PersonService $person
- * @property \yii2module\profile\domain\v2\services\AddressService $address
- * @property \yii2module\profile\domain\v2\services\AvatarService $avatar
- * @property \yii2module\profile\domain\v2\services\IinService $iin
+ * @property-read \yii2module\profile\domain\v2\interfaces\services\AvatarInterface $avatar
+ * @property-read \yii2module\profile\domain\v2\interfaces\repositories\RepositoriesInterface $repositories
  */
 class Domain extends \yii2lab\domain\Domain {
 	
