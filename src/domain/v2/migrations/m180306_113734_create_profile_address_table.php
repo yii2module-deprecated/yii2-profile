@@ -12,7 +12,7 @@ class m180306_113734_create_profile_address_table extends Migration
 	public function getColumns()
 	{
 		return [
-			'id' => $this->integer(),
+			'id' => $this->primaryKey(),
 			'country_id' => $this->integer()->comment('Страна'),
 			'region_id' => $this->integer()->comment('Область'),
 			'city_id' => $this->integer()->comment('Город'),
@@ -26,7 +26,7 @@ class m180306_113734_create_profile_address_table extends Migration
 
 	public function afterCreate()
 	{
-		$this->myAddPrimaryKey(['id']);
+		//$this->myAddPrimaryKey(['id']);
 	}
 
 }

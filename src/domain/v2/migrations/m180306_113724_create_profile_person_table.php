@@ -12,7 +12,7 @@ class m180306_113724_create_profile_person_table extends Migration
 	public function getColumns()
 	{
 		return [
-			'id' => $this->integer(),
+			'id' => $this->primaryKey(),
 			'first_name' => $this->string(128)->comment('Имя'),
 			'last_name' => $this->string(128)->comment('Фамилия'),
 			'iin' => $this->string(128)->comment('ИИН'),
@@ -23,7 +23,7 @@ class m180306_113724_create_profile_person_table extends Migration
 
 	public function afterCreate()
 	{
-		$this->myAddPrimaryKey(['id']);
+		//$this->myAddPrimaryKey(['id']);
 	}
 
 }

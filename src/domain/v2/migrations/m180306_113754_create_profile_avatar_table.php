@@ -12,14 +12,14 @@ class m180306_113754_create_profile_avatar_table extends Migration
 	public function getColumns()
 	{
 		return [
-			'id' => $this->integer(),
+			'id' => $this->primaryKey(),
 			'name' => $this->string()->comment('Аватар'),
 		];
 	}
 
 	public function afterCreate()
 	{
-		$this->myAddPrimaryKey(['id']);
+		//$this->myAddPrimaryKey(['id']);
 	}
 
 }

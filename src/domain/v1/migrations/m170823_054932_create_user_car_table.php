@@ -20,7 +20,7 @@ class m170823_054932_create_user_car_table extends Migration
 	
 	public function afterCreate()
 	{
-		$this->myAddPrimaryKey(['login']);
+		$this->myCreateIndexUnique(['login']);
 	}
 
 }

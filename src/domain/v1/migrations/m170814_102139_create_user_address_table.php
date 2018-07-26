@@ -26,7 +26,7 @@ class m170814_102139_create_user_address_table extends Migration
 
 	public function afterCreate()
 	{
-		$this->myAddPrimaryKey(['login']);
+		$this->myCreateIndexUnique(['login']);
 	}
 
 }

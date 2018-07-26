@@ -24,7 +24,7 @@ class m170724_110102_create_user_profile_table extends Migration
 
 	public function afterCreate()
 	{
-		$this->myAddPrimaryKey(['login']);
+		$this->myCreateIndexUnique(['login']);
 	}
 
 }
