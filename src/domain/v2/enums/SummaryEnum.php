@@ -6,6 +6,6 @@ use yii2lab\misc\enums\BaseEnum;
 
 class SummaryEnum extends BaseEnum {
 
-	const AVATAR_URL = 'avatars';
+	const AVATAR_URL = 'profile-avatar-path';
 
 }
