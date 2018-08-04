@@ -25,7 +25,8 @@ class AvatarEntity extends BaseEntity {
 			return EnvService::getStaticUrl(Yii::$domain->profile->avatar->defaultName);
 		} else {
 			$fileName = $this->name . DOT . Yii::$domain->profile->repositories->avatarUpload->format;
-			$baseUrl = Yii::$domain->summary->summary->getStaticUrl(SummaryEnum::AVATAR_URL);
+			$summartEntity = Yii::$domain->summary->static->oneById(SummaryEnum::AVATAR_URL);
+            $baseUrl = EnvService::getStaticUrl($summartEntity->value);
 			return $baseUrl . SL . $fileName;
 		}
 	}
