@@ -5,7 +5,7 @@ namespace yii2module\profile\domain\v2\repositories\fly;
 use yii\web\UploadedFile;
 use yii2lab\domain\repositories\StaticServerRepository;
 use yii2lab\helpers\TempHelper;
-use yii2lab\helpers\yii\FileHelper;
+use yii2lab\extension\yii\helpers\FileHelper;
 use yii2module\profile\domain\v2\interfaces\repositories\AvatarInterface;
 use yii\imagine\Image;
 

@@ -1,7 +1,7 @@
 <?php
 
 use yii\widgets\DetailView;
-use yii2lab\helpers\yii\Html;
+use yii2lab\extension\yii\helpers\Html;
 use yii2module\account\domain\v2\entities\LoginEntity;
 use yii2module\profile\domain\v2\entities\ProfileEntity;
 
