@@ -4,7 +4,7 @@ namespace yii2module\profile\domain\v1\entities;
 
 use yii2lab\domain\BaseEntity;
 use yii2lab\domain\values\TimeValue;
-use yii2lab\misc\enums\TimeEnum;
+use yii2lab\extension\enum\enums\TimeEnum;
 use yii2lab\validator\IinValidator;
 use Yii;
 use yii\validators\DateValidator;
