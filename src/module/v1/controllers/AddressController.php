@@ -14,20 +14,20 @@ use yii2lab\navigation\domain\widgets\Alert;
 class AddressController extends BaseController {
 
     public function actionIndex() {
-	    Yii::$domain->navigation->breadcrumbs->create([$this->module->moduleLangId(), 'title']);
+	    \App::$domain->navigation->breadcrumbs->create([$this->module->moduleLangId(), 'title']);
 		$model = new AddressForm();
 		if(Yii::$app->request->post()) {
 			$body = Yii::$app->request->post();
 			$model->setAttributes($body['AddressForm'], false);
 			try {
-				Yii::$domain->profile->address->updateSelf($model);
-				Yii::$domain->navigation->alert->create(['profile/address', 'saved_success'], Alert::TYPE_SUCCESS);
+				\App::$domain->profile->address->updateSelf($model);
+				\App::$domain->navigation->alert->create(['profile/address', 'saved_success'], Alert::TYPE_SUCCESS);
 			} catch(UnprocessableEntityHttpException $e) {
 				$model->addErrorsFromException($e);
 			}
 		} else {
 			/** @var AddressEntity $entity */
-			$entity = Yii::$domain->profile->address->getSelf();
+			$entity = \App::$domain->profile->address->getSelf();
 			$model->setAttributes($entity->toArray(), false);
 		}
 		return $this->render('update', [

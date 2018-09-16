@@ -13,17 +13,17 @@ use Yii;
 class AvatarController extends BaseController {
 
 	public function actionIndex() {
-		Yii::$domain->navigation->breadcrumbs->create([$this->module->moduleLangId(), 'title']);
+		\App::$domain->navigation->breadcrumbs->create([$this->module->moduleLangId(), 'title']);
 		$model = new AvatarForm();
 		if(Yii::$app->request->isPost) {
 			if(Yii::$app->request->post('submit')==='delete') {
-				Yii::$domain->profile->avatar->deleteSelf();
-				Yii::$domain->navigation->alert->create(['profile/avatar', 'delete_success'], Alert::TYPE_SUCCESS);
+				\App::$domain->profile->avatar->deleteSelf();
+				\App::$domain->navigation->alert->create(['profile/avatar', 'delete_success'], Alert::TYPE_SUCCESS);
 			} else {
 				if($model->validate()) {
 					try{
-						Yii::$domain->profile->avatar->updateSelf($model->imageFile);
-						Yii::$domain->navigation->alert->create(['profile/avatar', 'uploaded_success'], Alert::TYPE_SUCCESS);
+						\App::$domain->profile->avatar->updateSelf($model->imageFile);
+						\App::$domain->navigation->alert->create(['profile/avatar', 'uploaded_success'], Alert::TYPE_SUCCESS);
 					} catch (UnprocessableEntityHttpException $e){
 						$model->addErrorsFromException($e);
 					}
@@ -32,7 +32,7 @@ class AvatarController extends BaseController {
 		}
 		return $this->render('update', [
 			'model' => $model,
-			'avatar' => Yii::$domain->profile->avatar->getSelf(),
+			'avatar' => \App::$domain->profile->avatar->getSelf(),
 		]);
 	}
 	

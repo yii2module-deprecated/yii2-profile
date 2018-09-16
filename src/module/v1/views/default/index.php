@@ -45,7 +45,7 @@ $icon = Html::fa('pencil', ['class' => 'text-primary']);
         </h3>
 		
 		<?= DetailView::widget([
-			'model' => Yii::$domain->account->auth->identity,
+			'model' => \App::$domain->account->auth->identity,
 			'attributes' => [
 				'id',
 				'login',

@@ -19,7 +19,7 @@ class DefaultController extends Controller {
 			'avatar',
 			'person',
 		]);
-		$profileEntity = Yii::$domain->profile->profile->getSelf($query);
+		$profileEntity = \App::$domain->profile->profile->getSelf($query);
 		//prr($profileEntity,1,1);
 		return $this->render('index', [
 			'profileEntity' => $profileEntity,

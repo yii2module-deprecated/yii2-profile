@@ -43,7 +43,7 @@ class PersonEntity extends BaseEntity {
 		$title = ucfirst($this->first_name) . SPC . ucfirst($this->last_name);
 		$title = trim($title);
 		if(!$title) {
-			$title = Yii::$domain->account->auth->identity->login;
+			$title = \App::$domain->account->auth->identity->login;
 			if(LoginHelper::validate($title)) {
 				$title = LoginHelper::format($title);
 			}

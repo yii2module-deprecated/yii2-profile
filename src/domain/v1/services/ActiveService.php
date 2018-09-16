@@ -72,7 +72,7 @@ class ActiveService extends ActiveBaseService {
 	public function allWithProvider(Query $query = null) {
 		$query = Query::forge($query);
 		$query->with('provider');
-		$actives = Yii::$domain->profile->active->all($query);
+		$actives = \App::$domain->profile->active->all($query);
 		return $actives;
 	}
 	

@@ -19,8 +19,8 @@ class AvatarUploadRepository extends FileRepository {
 	public $pathName = 'avatar';
 	
 	public function all(Query $query = null) {
-		$loginEntity = Yii::$domain->account->login->one($query);
-		$personEntity = Yii::$domain->profile->person->oneById($loginEntity->id);
+		$loginEntity = \App::$domain->account->login->one($query);
+		$personEntity = \App::$domain->profile->person->oneById($loginEntity->id);
 		$entity = $this->forgeEntity([[
 			'name' => $personEntity->avatar,
 			'url' => $personEntity->avatar_url,
@@ -31,8 +31,8 @@ class AvatarUploadRepository extends FileRepository {
 	public function oneById($id, Query $query = null) {
 		$query2 = Query::forge();
 		$query2->with('profile.person');
-		$loginEntity = Yii::$domain->account->login->oneById($id, $query2);
-		$personEntity = Yii::$domain->profile->person->oneById($loginEntity->id);
+		$loginEntity = \App::$domain->account->login->oneById($id, $query2);
+		$personEntity = \App::$domain->profile->person->oneById($loginEntity->id);
 		$entity = $this->forgeEntity([[
 			'id' => $loginEntity->id,
 			'login' => $personEntity->login,

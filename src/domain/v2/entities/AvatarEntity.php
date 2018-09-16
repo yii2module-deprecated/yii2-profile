@@ -22,10 +22,10 @@ class AvatarEntity extends BaseEntity {
 	
 	public function getUrl() {
 		if(empty($this->name)) {
-			return EnvService::getStaticUrl(Yii::$domain->profile->avatar->defaultName);
+			return EnvService::getStaticUrl(\App::$domain->profile->avatar->defaultName);
 		} else {
-			$fileName = $this->name . DOT . Yii::$domain->profile->repositories->avatarUpload->format;
-			$summartEntity = Yii::$domain->summary->static->oneById(SummaryEnum::AVATAR_URL);
+			$fileName = $this->name . DOT . \App::$domain->profile->repositories->avatarUpload->format;
+			$summartEntity = \App::$domain->summary->static->oneById(SummaryEnum::AVATAR_URL);
             $baseUrl = EnvService::getStaticUrl($summartEntity->value);
 			return $baseUrl . SL . $fileName;
 		}
