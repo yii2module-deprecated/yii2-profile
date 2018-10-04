@@ -3,7 +3,7 @@
 namespace yii2module\profile\domain\v1\services;
 
 use yii2lab\app\domain\helpers\EnvService;
-use yii2lab\helpers\UrlHelper;
+use yii2lab\extension\common\helpers\UrlHelper;
 use Yii;
 use yii2lab\domain\services\ActiveBaseService;
 
