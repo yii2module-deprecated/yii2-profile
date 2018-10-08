@@ -2,7 +2,7 @@
 
 namespace yii2module\profile\module\v1\controllers;
 
-use yii2lab\helpers\Behavior;
+use yii2lab\extension\web\helpers\Behavior;
 use yii\web\Controller;
 
 /**

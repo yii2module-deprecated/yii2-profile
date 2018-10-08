@@ -2,7 +2,7 @@
 
 namespace yii2module\profile\api\v2\controllers;
 
-use yii2lab\helpers\Behavior;
+use yii2lab\extension\web\helpers\Behavior;
 use yii2lab\rest\domain\rest\Controller;
 use yii2lab\domain\exceptions\UnprocessableEntityHttpException;
 use Yii;
@@ -25,7 +25,7 @@ class AvatarController extends Controller {
 	 */
 	public function behaviors() {
 		return [
-			'authenticator' => Behavior::apiAuth(),
+			'authenticator' => Behavior::auth(),
 			'verb' => Behavior::verb([
 				'view' => ['GET'],
 				'update' => ['POST'],

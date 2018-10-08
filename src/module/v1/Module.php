@@ -4,7 +4,7 @@ namespace yii2module\profile\module\v1;
 
 use Yii;
 use yii\base\Module as YiiModule;
-use yii2lab\helpers\Behavior;
+use yii2lab\extension\web\helpers\Behavior;
 
 /**
  * user module definition class

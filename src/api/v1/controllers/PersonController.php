@@ -3,7 +3,7 @@
 namespace yii2module\profile\api\v1\controllers;
 
 use yii2lab\rest\domain\rest\Controller;
-use yii2lab\helpers\Behavior;
+use yii2lab\extension\web\helpers\Behavior;
 
 class PersonController extends Controller
 {
@@ -26,7 +26,7 @@ class PersonController extends Controller
 	public function behaviors()
 	{
 		return [
-			'authenticator' => Behavior::apiAuth(),
+			'authenticator' => Behavior::auth(),
 		];
 	}
 
