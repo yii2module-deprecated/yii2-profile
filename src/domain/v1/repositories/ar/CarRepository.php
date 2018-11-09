@@ -2,6 +2,7 @@
 
 namespace yii2module\profile\domain\v1\repositories\ar;
 
+use yii\db\BaseActiveRecord;
 use yii2lab\domain\BaseEntity;
 use yii2lab\domain\repositories\ActiveArRepository;
 use Yii;
@@ -18,7 +19,7 @@ class CarRepository extends ActiveArRepository {
 		$this->saveModel($model);
 	}
 	
-	protected function massAssignmentForInsert(ActiveRecord $model, BaseEntity $entity) {
+	protected function massAssignmentForInsert(BaseActiveRecord $model, BaseEntity $entity) {
 		$data = $entity->toArray();
 		$data = $this->unsetNotExistedFields($model, $data);
 		Yii::configure($model, $data);
