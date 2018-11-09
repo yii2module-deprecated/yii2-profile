@@ -1,6 +1,5 @@
 <?php
 
-use common\enums\app\ApiVersionEnum;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\web\View;

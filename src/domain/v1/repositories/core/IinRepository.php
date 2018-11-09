@@ -4,7 +4,6 @@ namespace yii2module\profile\domain\v1\repositories\core;
 
 use yii2module\profile\domain\v1\entities\PersonEntity;
 use yii2lab\domain\repositories\ActiveCoreRepository;
-use common\enums\app\ApiVersionEnum;
 
 class IinRepository extends ActiveCoreRepository {
 	
