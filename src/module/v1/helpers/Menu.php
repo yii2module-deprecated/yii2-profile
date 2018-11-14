@@ -5,7 +5,7 @@ namespace yii2module\profile\module\v1\helpers;
 use Yii;
 use yii2lab\domain\helpers\ServiceHelper;
 use yii2lab\extension\menu\interfaces\MenuInterface;
-use yii2lab\helpers\ModuleHelper;
+use yii2lab\extension\common\helpers\ModuleHelper;
 
 class Menu implements MenuInterface {
 	
